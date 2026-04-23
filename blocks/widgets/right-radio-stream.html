@@ -1,0 +1,151 @@
+<!-- blocks/widgets/right-radio-stream.html -->
+<div class="flex flex-col w-full">
+    
+    <!-- Block Title -->
+    <!-- <h2 class="text-danger font-semibold text-lg font-serif mb-3">Read also</h2> -->
+
+    <div class="w-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.06)] border border-gray-100 px-8 py-3 flex items-center gap-6" 
+        x-data="{ 
+            playing: false,
+            audio: null,
+            
+            // This runs automatically when the block loads
+            init() {
+                // Uses your exact stream URL
+                this.audio = new Audio('https://streaming.rimradio.ma/live');
+                // Uses your exact default volume
+                this.audio.volume = 0.75; 
+            },
+            
+            // This runs when you click the play button
+            toggleRadio() {
+                if (this.playing) {
+                    this.audio.pause();
+                    this.playing = false;
+                } else {
+                    // Because it's a live stream, calling .load() before play() 
+                    // ensures you jump to the LIVE moment, rather than the cached past moment.
+                    this.audio.load(); 
+                    this.audio.play();
+                    this.playing = true;
+                }
+            }
+        }">
+
+         <!-- LEFT: Play/Pause Button -->
+        <button @click="toggleRadio()" 
+                class="shrink-0 w-[40px] h-[40px] rounded-full bg-[#0B1D32] hover:bg-primary text-white flex items-center justify-center shadow-md transition-all duration-200 focus:outline-none"
+                :aria-label="playing ? 'Pause Radio' : 'Play Radio'">
+            <i class="fa-solid text-[1.1rem]" :class="playing ? 'fa-pause' : 'fa-play ps-1'"></i>
+        </button>
+
+        <!-- RIGHT: RIM Logo & Waves Grouped Together -->
+        <div class="flex items-center gap-2">
+            
+            <!-- Logo hidden -->
+            <a href="#" class="hidden shrink-0 w-[110px] lg:w-[130px] block hover:opacity-90 transition-opacity">
+                <img src="assets/images/rim-logo.svg" alt="RIM - Moroccan News Radio" class="w-full h-auto object-contain">
+            </a>
+
+            <!-- Tiny Audio Waveform Visualizer (Pulses and turns Blue when playing) -->
+            <div class="flex items-center justify-center gap-[3px] h-[16px] shrink-0 ms-2 me-auto">
+                
+                <!-- Left Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.2s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.4s] h-[6px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.1s] h-[16px] bg-primary' : 'h-[16px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.5s] h-[8px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.3s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.6s] h-[6px] bg-primary' : 'h-[4px] bg-[#d1d5db]'"></div>
+                    
+                <!-- Right Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+
+
+                <!-- Left Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+
+
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.2s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.4s] h-[6px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.1s] h-[16px] bg-primary' : 'h-[16px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.5s] h-[8px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.3s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.6s] h-[6px] bg-primary' : 'h-[4px] bg-[#d1d5db]'"></div>
+                    
+                <!-- Right Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+
+
+                <!-- Left Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+
+
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.2s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.4s] h-[6px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.1s] h-[16px] bg-primary' : 'h-[16px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.5s] h-[8px] bg-primary' : 'h-[14px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.3s] h-[12px] bg-primary' : 'h-[8px] bg-[#d1d5db]'"></div>
+                
+                <div class="w-[3px] rounded-full transition-all duration-300" 
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite_0.6s] h-[6px] bg-primary' : 'h-[4px] bg-[#d1d5db]'"></div>
+                    
+                <!-- Right Dot -->
+                <div class="w-[3px] rounded-full transition-all duration-300"
+                    :class="playing ? 'animate-[pulse_1s_ease-in-out_infinite] h-[6px] bg-primary' : 'h-[3px] bg-[#d1d5db]'"></div>
+                
+            </div>
+        </div>
+
+       
+
+    </div>
+
+</div>

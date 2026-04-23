@@ -1,0 +1,59 @@
+<!-- blocks/global/pagination.html -->
+<!-- ==============================================
+        PAGINATION (Fully Dynamic, self-contained)
+        Button spec: padding 9px/17px, bg #DDDDDD / active #0B1D32,
+        text #0B1D32 / active white. Labels in French.
+        ============================================== -->
+<div class="flex flex-wrap justify-center md:flex-nowrap items-center gap-2 mt-6 lg:mt-10 pb-4 lg:pb-6 border-b lg:border-b-0 w-full"
+     x-data="{
+        page: 1,
+        totalPages: 9,
+        init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('p')) {
+                this.page = parseInt(params.get('p'));
+            }
+        },
+        getPageUrl(pageNum) {
+            const params = new URLSearchParams(window.location.search);
+            params.set('p', pageNum);
+            return '?' + params.toString();
+        }
+     }">
+
+    <!-- First Button (hidden on page 1) -->
+    <a x-show="page > 1" :href="getPageUrl(1)"
+        class="bg-[#DDDDDD] text-[#0B1D32] hover:bg-[#cccccc] font-sans font-normal text-[0.75rem] transition-colors flex items-center px-[17px] py-[9px] whitespace-nowrap">
+        «&nbsp;Premier
+    </a>
+
+    <!-- Prev Button (hidden on page 1) -->
+    <a x-show="page > 1" :href="getPageUrl(page - 1)"
+        class="bg-[#DDDDDD] text-[#0B1D32] hover:bg-[#cccccc] font-sans font-normal text-[0.75rem] transition-colors flex items-center px-[17px] py-[9px] whitespace-nowrap">
+        ‹&nbsp;Précédent
+    </a>
+
+    <!-- Page Numbers (dynamically generated from totalPages) -->
+    <template x-for="n in totalPages" :key="n">
+        <a :href="getPageUrl(n)"
+            class="font-sans text-[0.75rem] transition-colors flex items-center justify-center px-[17px] py-[9px]"
+            :class="page === n
+                ? 'bg-[#0B1D32] text-white font-semibold'
+                : 'bg-[#DDDDDD] text-[#0B1D32] font-normal hover:bg-[#cccccc]'">
+            <span x-text="n"></span>
+        </a>
+    </template>
+
+    <!-- Next Button (hidden on last page) -->
+    <a x-show="page < totalPages" :href="getPageUrl(page + 1)"
+        class="bg-[#DDDDDD] text-[#0B1D32] hover:bg-[#cccccc] font-sans font-normal text-[0.75rem] transition-colors flex items-center px-[17px] py-[9px] whitespace-nowrap">
+        Suivant&nbsp;›
+    </a>
+
+    <!-- Last Button (hidden on last page) -->
+    <a x-show="page < totalPages" :href="getPageUrl(totalPages)"
+        class="bg-[#DDDDDD] text-[#0B1D32] hover:bg-[#cccccc] font-sans font-normal text-[0.75rem] transition-colors flex items-center px-[17px] py-[9px] whitespace-nowrap">
+        Dernier&nbsp;»
+    </a>
+
+</div>

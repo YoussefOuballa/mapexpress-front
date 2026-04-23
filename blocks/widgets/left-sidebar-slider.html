@@ -1,0 +1,149 @@
+<!-- blocks/widgets/left-sidebar-slider.html -->
+<!-- x-data manages the 5 slides -->
+<div x-data="{ current: 0, total: 5 }" class="flex flex-col w-full">
+    
+    <!-- MAIN SLIDES WRAPPER -->
+    <!-- Using our perfected Grid Stack to prevent layout jumping -->
+    <div class="w-full grid [grid-template-areas:'hero-stack'] relative overflow-hidden items-start pb-4 border-b border-gray-200">
+        
+        <!-- ================= SLIDE 1 ================= -->
+        <article x-show="current === 0" 
+             x-transition:enter="transition-all ease-out duration-500 z-10 relative"
+             x-transition:enter-start="opacity-0 scale-[0.98]"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition-all ease-in duration-300 z-0 relative"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="[grid-area:hero-stack] bg-white flex flex-col w-full origin-top">
+            
+            <!-- Image (Top) -->
+            <a href="#" class="block w-full mb-4 overflow-hidden rounded-md shrink-0">
+                <img src="assets/images/placeholder/placeholder-5.jpg" alt="Morocco-Niger Commission" class="w-full h-full object-cover transition-transform duration-500 hover:scale-100">
+            </a>
+
+            <!-- Text Content (Bottom) -->
+            <div class="flex flex-col">
+                <a href="#" class="block group">
+                    <h3 class="font-serif text-[#0B1D32] text-[1.1rem] font-bold leading-[1.2] mb-3 group-hover:text-primary transition-colors">
+                        HM the King Chairs in Rabat Council of Ministers
+                    </h3>
+                </a>
+                
+                <div class="flex items-center text-[#AEAEAE] text-[0.75rem] font-sans font-medium mb-3">
+                    <i class="fa-regular fa-clock me-2 text-[0.8rem]"></i> 
+                    <time>09 April 2026</time>
+                </div>
+                
+                <p class="text-gray-600 leading-relaxed font-sans text-[0.75rem] font-normal">
+                    Rabat - His Majesty King Mohammed VI, may God assist Him, chaired on Thursday at the Royal Palace in Rabat a Council of ministers, according to a statement by the Royal Office.
+                </p>
+            </div>
+        </article>
+
+        <!-- ================= SLIDE 2 ================= -->
+        <article x-show="current === 1" 
+             style="display: none;"
+             x-transition:enter="transition-all ease-out duration-500 z-10 relative"
+             x-transition:enter-start="opacity-0 scale-[0.98]"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition-all ease-in duration-300 z-0 relative"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="[grid-area:hero-stack] bg-white flex flex-col w-full origin-top">
+            
+            <a href="#" class="block w-full mb-4 overflow-hidden rounded-md shrink-0">
+                <img src="assets/images/placeholder/placeholder-2.png" alt="Economic Meeting" class="w-full h-full object-cover transition-transform duration-500 hover:scale-100">
+            </a>
+
+            <div class="flex flex-col">
+                <a href="#" class="block group">
+                    <h3 class="font-serif text-[#0b1a30] text-[1.3rem] font-bold leading-[1.2] mb-3 group-hover:text-primary transition-colors">
+                        Morocco and Spain Sign New Strategic Economic Partnership Agreement
+                    </h3>
+                </a>
+                <div class="flex items-center text-[#AEAEAE] text-[0.75rem] font-sans font-medium mb-3">
+                    <i class="fa-regular fa-clock me-2 text-[0.8rem]"></i> 
+                    <time>26 March 2026</time>
+                </div>
+                <p class="text-[#6C6C6C] leading-relaxed font-sans text-[0.85rem]">
+                    Madrid - A landmark agreement aimed at boosting bilateral trade and sustainable energy investments was signed today between Moroccan and Spanish officials, marking a new era of cooperation.
+                </p>
+            </div>
+        </article>
+
+        <!-- ================= SLIDE 3 ================= -->
+        <article x-show="current === 2" 
+             style="display: none;"
+             x-transition:enter="transition-all ease-out duration-500 z-10 relative"
+             x-transition:enter-start="opacity-0 scale-[0.98]"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition-all ease-in duration-300 z-0 relative"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="[grid-area:hero-stack] bg-white flex flex-col w-full origin-top">
+            
+            <a href="#" class="block w-full mb-4 overflow-hidden rounded-md shrink-0">
+                <img src="assets/images/placeholder/placeholder-3.png" alt="Cultural Event" class="w-full h-full object-cover transition-transform duration-500 hover:scale-100">
+            </a>
+
+            <div class="flex flex-col">
+                <a href="#" class="block group">
+                    <h3 class="font-serif text-[#0b1a30] text-[1.3rem] font-bold leading-[1.2] mb-3 group-hover:text-primary transition-colors">
+                        Casablanca Hosts International Film Festival Celebrating African Cinema
+                    </h3>
+                </a>
+                <div class="flex items-center text-[#AEAEAE] text-[0.75rem] font-sans font-medium mb-3">
+                    <i class="fa-regular fa-clock me-2 text-[0.8rem]"></i> 
+                    <time>27 March 2026</time>
+                </div>
+                <p class="text-[#6C6C6C] leading-relaxed font-sans text-[0.85rem]">
+                    Casablanca - Directors and actors from across the continent gathered in the economic capital today for the opening ceremony of the annual African Film Festival, highlighting regional talent.
+                </p>
+            </div>
+        </article>
+
+        <!-- SLIDE 4 & 5 (Duplicates for testing the 5 dots) -->
+        <article x-show="current === 3" style="display: none;" class="[grid-area:hero-stack] bg-white flex flex-col w-full origin-top" x-transition:enter="transition-all ease-out duration-500 z-10 relative" x-transition:enter-start="opacity-0 scale-[0.98]" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition-all ease-in duration-300 z-0 relative" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <a href="#" class="block w-full mb-4 overflow-hidden rounded-md shrink-0">
+                <img src="assets/images/placeholder/placeholder-1.png" alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 hover:scale-100">
+            </a>
+            <div class="flex flex-col">
+                <a href="#" class="block group"><h3 class="font-serif text-[#0b1a30] text-[1.3rem] font-bold leading-[1.2] mb-3 group-hover:text-primary transition-colors">National Renewable Energy Production Reaches Historic High</h3></a>
+                <div class="flex items-center text-[#AEAEAE] text-[0.75rem] font-sans font-medium mb-3"><i class="fa-regular fa-clock me-2 text-[0.8rem]"></i><time>28 March 2026</time></div>
+                <p class="text-[#6C6C6C] leading-relaxed font-sans text-[0.85rem]">Rabat - New statistics released by the Ministry of Energy Transition reveal that Morocco has successfully surpassed its ambitious renewable energy targets for the first quarter of the year.</p>
+            </div>
+        </article>
+
+        <article x-show="current === 4" style="display: none;" class="[grid-area:hero-stack] bg-white flex flex-col w-full origin-top" x-transition:enter="transition-all ease-out duration-500 z-10 relative" x-transition:enter-start="opacity-0 scale-[0.98]" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition-all ease-in duration-300 z-0 relative" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <a href="#" class="block w-full mb-4 overflow-hidden rounded-md shrink-0">
+                <img src="assets/images/placeholder/placeholder.png" alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 hover:scale-100">
+            </a>
+            <div class="flex flex-col">
+                <a href="#" class="block group"><h3 class="font-serif text-[#0b1a30] text-[1.3rem] font-bold leading-[1.2] mb-3 group-hover:text-primary transition-colors">New High-Speed Rail Line Project Officially Launched</h3></a>
+                <div class="flex items-center text-[#AEAEAE] text-[0.75rem] font-sans font-medium mb-3"><i class="fa-regular fa-clock me-2 text-[0.8rem]"></i><time>29 March 2026</time></div>
+                <p class="text-[#6C6C6C] leading-relaxed font-sans text-[0.85rem]">Marrakech - The extension of the Al Boraq high-speed rail network towards the southern provinces was inaugurated today, promising to significantly reduce travel times across the kingdom.</p>
+            </div>
+        </article>
+        
+    </div>
+
+    <!-- ==============================================
+         BOTTOM CONTROLS (Dots Only)
+         ============================================== -->
+    <!-- Positioned precisely below the border-bottom line of the slide -->
+    <div class="w-full flex items-center justify-start mt-4">
+        
+        <!-- Dots -->
+        <div class="flex items-center gap-2">
+            <template x-for="(slide, index) in total" :key="index">
+                <button @click="current = index" 
+                        class="focus:outline-none transition-all duration-300 rounded-full h-[8px]"
+                        :class="current === index ? 'w-[24px] bg-[#005bab]' : 'w-[8px] bg-[#93c5fd] hover:bg-[#005bab]'" 
+                        :aria-label="'Go to slide ' + (index + 1)">
+                </button>
+            </template>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,170 @@
+<!-- blocks/global/media-carousel.html -->
+<!-- x-data initializes the Splide.js carousel -->
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-3 lg:py-3 relative"
+     x-data="{ 
+        init() {
+            // Wait for Splide to load from CDN, then mount the carousel
+            const checkSplide = setInterval(() => {
+                if (window.Splide) {
+                    clearInterval(checkSplide);
+                    new Splide(this.$refs.splide, {
+                        type: 'loop',
+                        perPage: 5,
+                        perMove: 2,
+                        gap: '1.2rem',
+                        pagination: false, // We hide dots, keep arrows
+                        autoplay: true,
+                        interval: 3000,
+                        pauseOnHover: true,
+                        // Handle RTL automatically
+                        direction: document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr',
+                        breakpoints: {
+                            1024: { perPage: 4, gap: '0.9rem' },
+                            768: { perPage: 3, gap: '0.7rem' },
+                            480: { perPage: 2, gap: '0.5rem' },
+                        }
+                    }).mount();
+                }
+            }, 100);
+        }
+     }">
+
+    <!-- Custom Header Style -->
+    <h2 class="text-[#191919] font-bold text-[1.1rem] font-serif ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110]">
+        MAP SITES
+    </h2>
+    
+    <!-- Splide Main Wrapper -->
+    <section x-ref="splide" class="splide" aria-label="MAP Network Media">
+        
+        <!-- ==============================================
+             CUSTOM ARROWS (Matching your Mockup)
+             ============================================== -->
+        <div class="splide__arrows">
+            <!-- Left Arrow -->
+            <button class="splide__arrow splide__arrow--prev w-[50px] h-[50px] bg-white rounded-full shadow-sm transition-colors absolute top-1/2 -translate-y-1/2 left-0 lg:-left-16 z-10 flex items-center justify-center focus:outline-none">
+                <i class="fa-solid fa-chevron-left text-[1rem] text-primary"></i>
+            </button>
+            
+            <!-- Right Arrow -->
+            <button class="splide__arrow splide__arrow--next w-[50px] h-[50px] bg-white rounded-full shadow-sm transition-colors absolute top-1/2 -translate-y-1/2 right-0 lg:-right-16 z-10 flex items-center justify-center focus:outline-none">
+                <i class="fa-solid fa-chevron-right text-[1rem] text-primary"></i>
+            </button>
+        </div>
+
+        <!-- ==============================================
+             THE SLIDES (Partner Logos)
+             ============================================== -->
+        <div class="splide__track py-2">
+            <ul class="splide__list">
+                
+                <!-- Logo 1: MAP TV -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.maptv.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-tv.png" alt="MAP TV" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 2: MAP SPORT -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://mapsport.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-sport.png" alt="MAP SPORT" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 3: MAP PHOTO -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapphoto.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-photo.png" alt="MAP PHOTO" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 4: MAP AUDIO -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapaudio.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-audio.png" alt="MAP AUDIO" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 5: MAP INFOGRAPHIE -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapinfographie.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-infographics.png" alt="MAP INFOGRAPHIE" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 6: MAP TAMAZIGHT -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapamazighe.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-tamazight.png" alt="MAP Tamazight" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 7: MAP INFO -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://mapinfo.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-info.png" alt="MAP INFO" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 8: MAP ECOLOGY (The green one) -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://mapecology.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-ecology.png" alt="MAP ECOLOGY" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+                
+                <!-- Logo 9: MAP ARCHIVES -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.maparchives.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-archives.jpg" alt="MAP ARCHIVES" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 8: MAP ECOLOGY (The green one) -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapnewsdisplay.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-news-display.webp" alt="MAP NEWS DISPKLAY" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+
+                <!-- Logo 10: MAP BUSINESS -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapbusiness.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-business.jpg" alt="MAP BUSINESS" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 11: MAP APPS -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.map.ma/nos-produits-et-services/map-mobile/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-apps.jpg" alt="MAP APPS" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 12: MAP BROADCAST  -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://mapbroadcast.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-broadcast.jpg" alt="MAP BROADCAST" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 13: MAP FINANCE  -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapfinance.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-finance.png" alt="MAP FINANCE" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+                <!-- Logo 14: MAP BROADCAST  -->
+                <li class="splide__slide flex items-center justify-center">
+                    <a href="https://www.mapparite.ma/" target="_blank" rel="noopener noreferrer" class="block w-full hover:scale-100 hover:shadow-md transition-all duration-300">
+                        <img src="assets/images/media/carousel/map-parite.webp" alt="MAP BROADCAST" class="w-full h-auto object-contain">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+</div>

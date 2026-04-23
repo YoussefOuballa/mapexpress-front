@@ -1,0 +1,21 @@
+<!-- blocks/global/banner-ad.html -->
+<div class="flex flex-col w-full items-center">
+    
+    <!-- Rotating Ad Container -->
+    <!-- Alpine automatically cycles 'active' from 0 to 1 every 3000ms (3 seconds) -->
+    <div x-data="{ active: 0, total: 1 }" 
+         x-init="setInterval(() => active = (active + 1) % total, 3000)" 
+         class="relative w-full h-[300px] aspect-[280/300] flex items-center justify-center overflow-hidden">
+        
+        <!-- ==============================================
+             AD 1 (From your source code)
+             ============================================== -->
+        <a href="https://cloud.key-expo.com/visit-key-2026?utm_source=banner&utm_medium=referral&utm_campaign=mapenews" 
+           target="_blank" rel="noopener noreferrer"
+           class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10 justify-items-center"
+           :class="active === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
+            <img src="assets/images/lateral_banners/banner_280x300-1.webp" alt="Advertisement" class="w-[280px] h-[300px] object-contain">
+        </a>
+
+    </div>
+</div>

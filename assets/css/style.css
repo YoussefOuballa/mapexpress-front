@@ -1,0 +1,309 @@
+/* assets/css/style.css */
+
+:root {
+    --color-primary: #005EB8;
+    --color-primary-hover: #004280;
+    --color-danger: #E30613;
+    --color-dark: #111827;
+    --nav-height: 70px;
+    --border-light: #e5e7eb;
+
+    /* HERO SECTION */
+    --color-badge: #9F8E75; /* The brown/taupe category color */
+    --color-heading: #0B1D32; /* The deep navy text color */
+}
+
+/* html[dir="rtl"] { 
+    font-family: 'Cairo', sans-serif;
+} */
+
+/* =========================================
+   TOPBAR STYLES
+   ========================================= */
+.topbar {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.brand-logo-img {
+    height: 90px;
+    width: auto;
+    display: block;
+}
+
+/* Social & CTA Buttons */
+.social-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease;
+    text-decoration: none;
+    
+    /* 
+     * NOTE: If your SVGs are JUST the white shapes, uncomment the 2 lines below 
+     * so the HTML provides the blue circle. 
+     * If your SVGs ALREADY include the blue circles, leave these commented out!
+     */
+    /* background-color: var(--color-primary); */
+    /* border-radius: 50%; */
+}
+
+.social-btn:hover { 
+    opacity: 0.85; /* Standard hover effect for image-based icons */
+    transform: scale(1.05); /* Slight pop effect */
+    /* background-color: var(--color-primary-hover); <-- Uncomment if using CSS background */
+}
+
+.svg-icon {
+    /* If the SVGs include the blue circle, this makes them fill the 40x40 area perfectly */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    
+    /* If the SVGs are JUST the white shapes, change the width/height to 20px */
+}
+.btn-outline {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.btn-outline:hover { background-color: #f0f8ff; }
+
+.btn-solid {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.btn-solid:hover { background-color: var(--color-primary-hover); }
+
+/* =========================================
+   NAVBAR STYLES
+   ========================================= */
+.menu-navbar {
+    border-bottom: 1px solid var(--border-light);
+}
+.navbar-inner {
+    height: var(--nav-height);
+}
+.nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.nav-item.active {
+    border-bottom: 4px solid var(--color-primary);
+    padding-top: 4px; 
+}
+
+.nav-link {
+    font-weight: bold;
+    color: var(--color-dark);
+    font-size: 1.125rem; 
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-chevron {
+    font-size: 0.65rem;
+    margin-inline-start: 0.35rem; 
+    transform: translateY(1px);
+}
+.nav-dropdown { top: var(--nav-height); }
+
+.lang-switcher-btn {
+    border: 1px solid var(--border-light);
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+    transition: background-color 0.2s;
+}
+.lang-switcher-btn:hover { background-color: #f9fafb; }
+
+/* =========================================
+   BREAKING NEWS (INFINITE TV STRIP) STYLES
+   ========================================= */
+.breaking-wrapper {
+    background-color: #F2F2F2;
+    border-bottom: 5px solid #DADADA;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    overflow: hidden;
+    padding-inline: 15px;
+}
+
+.breaking-label {
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0 1rem 0 .7rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 4;
+    margin-inline: 10px 5px;
+}
+
+@media (max-width: 768px) {
+    .breaking-wrapper {
+        padding-inline: 5px;
+    }
+    .breaking-label {
+        font-size: 0.75rem;
+        margin-inline: 0px 5px;
+    }
+}
+
+/* The overflow hider */
+.ticker-container {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* The track holds the duplicated content side-by-side */
+.ticker-track {
+    display: flex;
+    width: max-content;
+}
+
+/* The actual scrolling content block */
+.ticker-content {
+    display: flex;
+    align-items: center;
+    padding-inline-end: 3rem; /* Space before the loop restarts */
+    animation: ticker-ltr 120s linear infinite;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-end: 0.5rem; /* Space between individual news items */
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #191919;
+    white-space: nowrap;
+}
+
+.ticker-bullet {
+    color: var(--color-danger);
+    margin-inline-end: 0.5rem;
+}
+
+/* LTR Animation (Moves left) */
+@keyframes ticker-ltr {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Moves exactly its own width */
+}
+
+/* RTL Animation (Moves right) */
+html[dir="rtl"] .ticker-content {
+    animation: ticker-rtl 30s linear infinite;
+}
+@keyframes ticker-rtl {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+/* Pause animation on hover */
+.ticker-container:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+
+/* =========================================
+   HERO SLIDER STYLES
+   ========================================= */
+
+.hero-badge {
+    background-color: var(--color-badge);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+    width: max-content;
+}
+
+.hero-title {
+    color: var(--color-heading);
+    font-weight: 600;
+    line-height: 1.2;
+}
+.hero-title:hover {
+    color: var(--color-primary);
+}
+
+.slider-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #AEAEAE; /* gray-300 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary); /* gray-500 */
+    transition: all 0.2s ease;
+    background-color: white;
+}
+.slider-arrow:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.slider-arrow:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 91, 171, 0.2);
+}
+
+/* Dots animation */
+.slider-dot {
+    height: 8px;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+.slider-dot.active {
+    width: 24px;
+    background-color: var(--color-primary);
+}
+.slider-dot.inactive {
+    width: 8px;
+    background-color: #005EB8A1; /* blue-300 */
+}
+.splide__arrow {
+    border: 1px solid #AEAEAE;
+}
+
+.splide__arrow:hover {
+    border: 1px solid var(--color-primary);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

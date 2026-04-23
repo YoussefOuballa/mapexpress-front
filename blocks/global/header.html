@@ -1,0 +1,174 @@
+<div x-data="{ scrolled: false, mobileMenuOpen: false }" 
+     x-init="$watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '')"
+     @scroll.window="scrolled = false"
+     class="w-full bg-white  bg-center bg-cover border-b border-gray-200 relative overflow-visible transition-[height] duration-300 ease-in-out z-50"
+     style="background-image: url('assets/images/header-pattern-bg.png');"
+     :class="scrolled ? 'py-2' : 'py-0'">
+
+    <!-- COLOR OVERLAY: This forces the 65% white opacity OVER the background image -->
+    <div class="absolute inset-0 bg-white/65 z-0 pointer-events-none"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="relative z-10 container mx-auto px-4 lg:px-8 flex flex-col justify-center h-full">
+        
+        <!-- FLEX LAYOUT SWITCHER -->
+        <div class="w-full flex transition-all duration-300 lg:px-2"
+             :class="scrolled ? 'flex-row items-center justify-between' : 'flex-col justify-center'">
+            
+            <!-- ==============================================
+                 GROUP 1: Date, Logo, Socials (Top Row)
+                 ============================================== -->
+            <div class="flex items-center transition-all duration-300 w-full"
+                 :class="scrolled ? 'w-auto py-0 shrink-0' : 'justify-between py-3'">
+                
+                <!-- Date (Hides on scroll) -->
+                <div class="hidden md:block w-1/4 transition-all duration-300" 
+                     :class="scrolled ? 'opacity-0 w-0 hidden' : 'opacity-100'">
+                    <span x-data="{ 
+                        currentTime: '', 
+                        init() { 
+                            const updateTime = () => {
+                                const now = new Date();
+                                // Formatting the date in French, explicitly spelling out the day/month, and extracting 24hr time
+                                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                                this.currentTime = new Intl.DateTimeFormat('fr-FR', options).format(now).replace(',', '');
+                            };
+                            updateTime();
+                        } 
+                    }"
+                    x-text="currentTime" 
+                    class="text-[0.75rem] font-bold tracking-wide uppercase text-gray-900 font-inter">
+                        Mardi 22 Avril 2026
+                    </span>
+                </div>
+                
+                <!-- Logo  -->
+                <a href="/" class="shrink-0 block">
+                    <img src="assets/images/logo.svg" alt="MAP Logo" class="h-[55px] w-auto object-contain">
+                </a>
+
+                <!-- Social Icons (Hides on scroll) -->
+                <div class="hidden md:flex justify-end items-center gap-4 w-1/4 text-[#0b1a30] transition-all duration-300"
+                     :class="scrolled ? 'opacity-0 w-0 hidden' : 'opacity-100'">
+                    <a href="https://www.facebook.com/maghrebpressagency" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/MAP_Information" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/agence_map" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/user/MAPTVMaroc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/maghreb-arabe-presse" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VanBf0k5kg7AVVCfQv1s" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- ==============================================
+                 GROUP 2: Navigation Menu & Tools (Bottom Row)
+                 ============================================== -->
+            <div class="flex items-center justify-between transition-all duration-300"
+                 :class="scrolled ? 'flex-grow lg:pl-6' : 'w-full py-2'">
+                
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center gap-5 font-sans font-medium text-[#191919] transition-all duration-300"
+                     :class="scrolled ? 'text-[0.7rem]' : 'text-[0.85rem]'">
+                    <a href="index.html" class="font-extrabold text-[#0a1e3f] hover:text-primary py-1">Accueil</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1">Politique</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1">Société</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Économie et Finances</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Culture et Médias</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1">Sports</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">SOS Fake news</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Opinions et Débats</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Grand Maghreb</a>
+                    <a href="category.html" class="hover:text-primary transition-colors py-1">Monde</a>
+                </nav>
+
+                <!-- Mobile Hamburger -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-[#0b1a30] focus:outline-none rounded-md hover:text-primary">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+
+                <!-- Tools (Search & Language) -->
+                <div class="flex items-center gap-3 lg:gap-4 shrink-0 transition-all duration-300 pl-4">
+                    
+                    <!-- Search Dropdown -->
+                    <div class="relative hidden sm:block" x-data="{ searchOpen: false }" @click.away="searchOpen = false">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-500 hover:text-primary transition-colors focus:outline-none flex items-center py-2">
+                            <img src="assets/images/magnifying-glass.svg" alt="search" :class="scrolled ? 'text-[1rem]' : 'text-[1.1rem]'">
+                        </button>
+                        <div x-show="searchOpen" x-transition.opacity.duration.200ms style="display: none;" 
+                             class="absolute top-full mt-2 right-0 w-auto bg-white shadow-xl border border-gray-100 p-4 z-50 flex gap-2">
+                            <input type="text" placeholder="Rechercher..." class="flex-grow border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-primary">
+                            <button class="bg-primary text-white px-4 py-2 text-sm font-semibold hover:bg-[#0d5691] transition-colors">Rechercher</button>
+                        </div>
+                    </div>
+
+                    <!-- Static Language Links (per MapExpress image) -->
+                    <div class="flex items-center gap-2 text-[0.85rem] font-medium text-[#191919]">
+                        <a href="#" class="hover:text-primary transition-colors">Arabe</a>
+                        <div class="h-[15px] w-[2px] bg-gray-300"></div>
+                        <a href="#" class="hover:text-primary transition-colors">Français</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         MOBILE BACKDROP OVERLAY
+         ============================================== -->
+    <div x-show="mobileMenuOpen" 
+         x-transition.opacity.duration.300ms 
+         @click="mobileMenuOpen = false"
+         style="display: none;" 
+         class="lg:hidden absolute top-full start-0 w-screen h-screen bg-black/60 z-40 cursor-pointer">
+    </div>
+
+    <!-- ==============================================
+         MOBILE MENU ACCORDION
+         ============================================== -->
+    <div x-show="mobileMenuOpen" x-transition style="display: none;" class="lg:hidden w-full bg-white border-t border-gray-100 absolute start-0 top-full shadow-lg z-50 max-h-[80vh] overflow-y-auto">
+        <ul class="flex flex-col py-2">
+            <li><a href="/" class="block px-6 py-3 font-sans font-semibold text-primary bg-blue-50">Accueil</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Politique</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Société</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Économie et Finances</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Culture et Médias</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Sports</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">SOS Fake news</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Opinions et Débats</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Grand Maghreb</a></li>
+            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Monde</a></li>
+
+            <!-- Mobile Socials & Lang Links -->
+            <li class="flex flex-col items-center justify-center gap-4 py-6 bg-white border-t border-gray-100 mt-2">
+                <div class="flex items-center gap-3 lg:gap-4 shrink-0 transition-all duration-300 pl-4">
+                    
+                    <!-- Search Dropdown -->
+                    <div class="relative block sm:hidden" x-data="{ searchOpen: false }" @click.away="searchOpen = false">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-500 hover:text-primary transition-colors focus:outline-none flex items-center py-2">
+                            <img src="assets/images/magnifying-glass.svg" alt="search" :class="scrolled ? 'text-[1rem]' : 'text-[1.1rem]'">
+                        </button>
+                        <div x-show="searchOpen" x-transition.opacity.duration.200ms style="display: none;" 
+                             class="absolute top-full mt-2 right-0 w-auto bg-white shadow-xl border border-gray-100 p-4 z-50 flex gap-2">
+                            <input type="text" placeholder="Rechercher..." class="flex-grow border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-primary">
+                            <button class="bg-primary text-white px-4 py-2 text-sm font-semibold hover:bg-[#0d5691] transition-colors">Rechercher</button>
+                        </div>
+                    </div>
+
+                    <!-- Static Language Links (per MapExpress image) -->
+                    <div class="flex items-center gap-2 text-[0.85rem] font-medium text-[#191919]">
+                        <a href="#" class="hover:text-primary transition-colors">Arabe</a>
+                        <div class="h-[15px] w-[2px] bg-gray-300"></div>
+                        <a href="#" class="hover:text-primary transition-colors">Français</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 mt-2">
+                    <a href="https://www.facebook.com/maghrebpressagency" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/MAP_Information" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/agence_map" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/user/MAPTVMaroc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/maghreb-arabe-presse" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VanBf0k5kg7AVVCfQv1s" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
