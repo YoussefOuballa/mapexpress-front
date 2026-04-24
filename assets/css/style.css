@@ -307,3 +307,56 @@ html[dir="rtl"] .ticker-content {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* =========================================
+   MAP TV VERTICAL CAROUSEL
+   ========================================= */
+.map-tv-splide .splide__arrow {
+    width: 36px;
+    height: 36px;
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    opacity: 1;
+    transform: none;
+    z-index: 20;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.map-tv-splide .splide__arrow:hover {
+    background-color: #f9fafb;
+    border-color: var(--color-primary);
+}
+
+.map-tv-splide .splide__arrow svg {
+    display: none; /* We use Font Awesome icons inside the buttons */
+}
+
+.map-tv-splide .splide__arrow:disabled {
+    opacity: 0.4;
+}
+
+/* Pinned to top-right of first visible slide */
+.map-tv-splide .map-tv-arrow--up {
+    top: 8px;
+    right: 8px;
+    left: auto;
+    bottom: auto;
+}
+
+/* Pinned to bottom-right of last visible thumbnail
+   (offset clears the 2-line title area below each thumbnail) */
+.map-tv-splide .map-tv-arrow--down {
+    bottom: 3.5rem;
+    right: 8px;
+    left: auto;
+    top: auto;
+}
+
+/* RTL: mirror the arrow horizontal position to the start edge */
+html[dir="rtl"] .map-tv-splide .map-tv-arrow--up,
+html[dir="rtl"] .map-tv-splide .map-tv-arrow--down {
+    right: auto;
+    left: 8px;
+}

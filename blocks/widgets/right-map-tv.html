@@ -1,0 +1,158 @@
+<!-- blocks/widgets/right-map-tv.html -->
+<div class="flex flex-col w-full"
+     x-data="{
+        init() {
+            const checkSplide = setInterval(() => {
+                if (window.Splide) {
+                    clearInterval(checkSplide);
+                    new Splide(this.$refs.splide, {
+                        type: 'loop',
+                        direction: 'ttb',
+                        heightRatio: 2.3,
+                        perPage: 3,
+                        perMove: 1,
+                        gap: '0.85rem',
+                        pagination: false,
+                        arrows: true,
+                        autoplay: false,
+                        wheel: false,
+                    }).mount();
+                }
+            }, 100);
+        }
+     }">
+
+    <!-- Header (matches left-folders / media-carousel style) -->
+    <h2 class="text-[#191919] font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110]">
+        MAP TV
+    </h2>
+
+    <!-- Vertical Splide Carousel -->
+    <section x-ref="splide" class="splide map-tv-splide relative" aria-label="MAP TV Videos">
+
+        <!-- Custom Up/Down Arrows (pinned to top-right and bottom-right of the carousel) -->
+        <div class="splide__arrows">
+            <button type="button"
+                    class="splide__arrow splide__arrow--prev map-tv-arrow map-tv-arrow--up"
+                    aria-label="Vidéo précédente">
+                <i class="fa-solid fa-chevron-up text-[0.85rem]"></i>
+            </button>
+            <button type="button"
+                    class="splide__arrow splide__arrow--next map-tv-arrow map-tv-arrow--down"
+                    aria-label="Vidéo suivante">
+                <i class="fa-solid fa-chevron-down text-[0.85rem]"></i>
+            </button>
+        </div>
+
+        <div class="splide__track">
+            <ul class="splide__list">
+
+                <!-- Video 1 -->
+                <li class="splide__slide">
+                    <a href="https://www.youtube.com/watch?v=xd0BY0hwaU0&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fwww.mapexpress.ma%2F"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full group">
+                        <div class="relative w-full aspect-video overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/xd0BY0hwaU0/hqdefault.jpg"
+                                 alt="MAP TV vidéo 1"
+                                 class="w-full h-full object-cover">
+                            <!-- Play overlay -->
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] backdrop-blur-sm flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 line-clamp-2">
+                            آسية بنصالح العلوي تدعو إلى حكامة نقدية عالمية تصون أخلاقيات القانون الدولي في زمن الذكاء الاصطناعي
+                        </h3>
+                    </a>
+                </li>
+
+                <!-- Video 2 -->
+                <li class="splide__slide">
+                    <a href="https://www.youtube.com/watch?v=PmAf-arje5Y"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full group">
+                        <div class="relative w-full aspect-video overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
+                                 alt="MAP TV vidéo 2"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 line-clamp-2">
+                            خبراء أفارقة يدعون إلى أنسنة الفضاء السجني
+                        </h3>
+                    </a>
+                </li>
+
+                <!-- Video 3 -->
+                <li class="splide__slide">
+                    <a href="https://www.youtube.com/watch?v=9kpBnjlN_zE"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full group">
+                        <div class="relative w-full aspect-video overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/9kpBnjlN_zE/hqdefault.jpg"
+                                 alt="MAP TV vidéo 3"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 line-clamp-2">
+                            إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024
+                        </h3>
+                    </a>
+                </li>
+
+                <!-- Video 4 -->
+                <li class="splide__slide">
+                    <a href="https://www.youtube.com/watch?v=cpgtJeT68vw"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full group">
+                        <div class="relative w-full aspect-video overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/cpgtJeT68vw/hqdefault.jpg"
+                                 alt="MAP TV vidéo 4"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 line-clamp-2">
+                            انعقاد الاجتماع الأسبوعي لمجلس الحكومة
+                        </h3>
+                    </a>
+                </li>
+
+                <!-- Video 5 -->
+                <li class="splide__slide">
+                    <a href="https://www.youtube.com/watch?v=9WAJrkgrHGk"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full group">
+                        <div class="relative w-full aspect-video overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/9WAJrkgrHGk/hqdefault.jpg"
+                                 alt="MAP TV vidéo 4"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 line-clamp-2">
+                            السيدة فتاح: قطاع التأمينات آلية حقيقية للصمود في مواجهة التحولات المعقدة
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
