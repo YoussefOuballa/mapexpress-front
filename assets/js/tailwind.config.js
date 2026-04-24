@@ -11,6 +11,7 @@ tailwind.config = {
       fontFamily: {
         sans: ["Inter", "Cairo", "sans-serif"],
         serif: ["Barlow Condensed", "Cairo", "serif"],
+        condensed: ["Roboto Condensed", "Cairo", "sans-serif"],
       },
     },
   },

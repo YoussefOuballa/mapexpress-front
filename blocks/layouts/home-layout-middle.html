@@ -1,15 +1,18 @@
 <!-- blocks/home-layout-middle.html -->
 <div class="max-w-7xl mx-auto px-0">
     <!-- 12-column grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-x-0">
 
         <!-- MAIN CONTENT (Center) -->
-        <section class="lg:col-span-9 flex flex-col">
+        <section class="lg:col-span-9 flex flex-col lg:pr-6">
+
+            <!-- Politique category block -->
+            <div data-include="blocks/widgets/center-politique.html"></div>
 
         </section>
 
         <!-- RIGHT SIDEBAR -->
-        <aside class="lg:col-span-3 flex flex-col gap-5">
+        <aside class="lg:col-span-3 flex flex-col gap-5 lg:pl-6 lg:border-l-[1.5px] lg:border-[#F0EFE9]">
 
             <!-- MAP TV vertical videos carousel -->
             <div data-include="blocks/widgets/right-map-tv.html"></div>
