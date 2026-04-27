@@ -24,7 +24,7 @@
     </head>
     <body class="bg-white text-gray-800 font-sans antialiased flex flex-col min-h-screen">
 
-        <!-- DRUPAL REGION: Header -->
+        <!-- WP REGION: Header -->
         <header x-data="{ 
                     lastScroll: 0, 
                     isHidden: false,
@@ -55,14 +55,14 @@
             
         </header>
 
-        <!-- DRUPAL REGION: Main Content -->
+        <!-- WP REGION: Main Content -->
         <main class="flex flex-col w-full" id="main-content">
 
             <section class="flex-grow w-full container mx-auto px-3 sm:px-6 lg:px-8 pb-4 pt-0">
                 <!-- Injects the 3-column layout structure -->
                 <div data-include="blocks/layouts/home-layout-top.html" class="max-w-7xl mx-auto px-0"></div>
 
-                <div data-include="blocks/global/billboard-ad.html" class="mt-4 w-full"></div>
+                <div data-include="blocks/global/billboard-ad.html" class="mt-5 w-full"></div>
                 
                 <div data-include="blocks/layouts/home-layout-middle.html" class="mt-4 lg:mt-8 w-full"></div>
             </section>
@@ -72,7 +72,6 @@
             </section>
 
             <section class="flex-grow w-full container mx-auto px-3 sm:px-6 lg:px-8 pb-4 pt-0">
-                
                 <div data-include="blocks/layouts/home-layout-bottom.html" class="mt-4 lg:mt-8 w-full"></div>
             </section>
             

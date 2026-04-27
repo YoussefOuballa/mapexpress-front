@@ -1,28 +1,6 @@
 <!-- blocks/home-layout-bottom.html -->
 <div class="max-w-7xl mx-auto px-0 flex flex-col gap-6">
 
-    <!-- Row 1: Sport + ad + video -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <section class="lg:col-span-4">
-            <div data-include="blocks/widgets/center-sport.html"></div>
-        </section>
-        <div class="lg:col-span-4">
-            <div class="w-full max-w-[380px] aspect-[38/35] mx-auto bg-[#F5F6F8] flex items-center justify-center lg:w-[380px] lg:h-[350px] lg:max-w-none lg:aspect-auto">
-                <span class="text-black font-serif font-bold text-[40px] lg:text-[70px] tracking-wider">PUB</span>
-            </div>
-        </div>
-        <div class="lg:col-span-4">
-            <div class="w-full aspect-video max-w-[416px] mx-auto lg:w-[416px] lg:h-[342px] lg:max-w-none lg:aspect-auto">
-                <iframe src="https://www.youtube.com/embed/LB5b4t_CTSg"
-                        title="YouTube video"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        class="w-full h-full"></iframe>
-            </div>
-        </div>
-    </div>
-
     <!-- Row 2: Articles + ad -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <section class="lg:col-span-9">
@@ -30,9 +8,8 @@
             <div data-include="blocks/widgets/center-sos-fake-news.html"></div>
         </section>
         <aside class="lg:col-span-3">
-            <div class="w-[270px] h-[500px] bg-[#F5F6F8] flex items-center justify-center mx-auto">
-                <span class="text-black font-serif font-bold text-[50px] tracking-wider">PUB</span>
-            </div>
+            <!-- Ads vertical Block -->
+            <div data-include="blocks/widgets/right-ads-vertical-2.html"></div>
         </aside>
     </div>
 

@@ -1,20 +1,29 @@
 <!-- blocks/layouts/home-layout-top.html -->
 <div class="w-full">
-    <!-- 12-column grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-        <!-- LEFT SIDEBAR -->
-        <aside class="contents lg:flex lg:flex-col lg:col-span-3 gap-2 lg:gap-3 pt-2 lg:pt-4 lg:px-2">
+    <!-- Main 12-column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-10 gap-y-2 lg:gap-3">
+        
+        <!-- LEFT SIDEBAR (Original Widgets) -->
+        <aside class="contents lg:flex lg:flex-col lg:col-span-3 gap-2 pt-2 lg:pt-4">
+
+            <div class="order-5 lg:order-none lg:col-span-4 w-full h-full py-2 lg:py-0" data-include="blocks/widgets/left-latest-news.html"></div>
             
             <!-- Mobile Order 6: Royal Media -->
-            <div class="order-6 lg:order-none pb-0 my-4 lg:my-0" data-include="blocks/widgets/royal-phototheque.html"></div>
+            <div class="order-6 lg:order-none w-full pb-0" data-include="blocks/widgets/royal-phototheque.html"></div>
 
-            <div class="order-7 lg:order-none" data-include="blocks/widgets/left-folders.html"></div>
+            <!-- Mobile Order 7: Folders -->
+            <div class="order-7 lg:order-none w-full" data-include="blocks/widgets/left-folders.html"></div>
 
         </aside>
 
-        <!-- MAIN CONTENT (Center) -->
-        <section class="contents lg:flex lg:flex-col lg:col-span-9 lg:gap-3 pt-2 lg:pt-4">
+        <!-- MAIN CONTENT (Center / Right) -->
+        <section class="contents lg:flex lg:flex-col lg:col-span-7 lg:gap-4 pt-2 lg:pt-4">
+            
+            <div class="order-1 lg:order-none w-full py-2 pt-3 lg:py-0" data-include="blocks/home/hero-slider.html"></div>
 
+            <!-- Future middle/bottom layout items inside main content can go here -->
+              <!-- NEW: Royal Activities Grid (Placed right under the Hero block) -->
+            <div class="order-2 lg:order-none w-full order-2 lg:order-none mt-0" data-include="blocks/widgets/royal-activities-grid.html">
 
         </section>
 
