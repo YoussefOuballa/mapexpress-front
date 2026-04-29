@@ -176,7 +176,11 @@
     .breaking-label {
         font-size: 0.75rem;
         margin-inline: 0px 5px;
+        padding: 0 0.5rem;
+        background-color: transparent;
+        color: var(--color-danger);
     }
+    .bg-flash-news { background-image: none; }
 }
 
 /* The overflow hider */
@@ -206,7 +210,7 @@
 .ticker-item {
     display: inline-flex;
     align-items: center;
-    margin-inline-end: 0.5rem; /* Space between individual news items */
+    margin-inline-end: 3rem; /* Space between individual news items */
     font-size: 0.85rem;
     font-weight: 500;
     color: #191919;
@@ -298,6 +302,26 @@ html[dir="rtl"] .ticker-content {
     width: 8px;
     background-color: #005EB8A1; /* blue-300 */
 }
+
+.splide__arrow {
+    border: 1px solid #AEAEAE;
+    width: 50px;
+    height: 50px;
+    background: #FFFFFF;
+    --tw-translate-y: 0;
+}
+
+
+@media (min-width: 768px) {
+    .xl\:-left-16 {
+        left: -4rem;
+    }
+
+    .xl\:-right-16 {
+        right: -4rem;
+    }
+}
+
 .splide__arrow {
     border: 1px solid #AEAEAE;
 }
@@ -398,4 +422,21 @@ html[dir="rtl"] .ticker-content {
 .map-tv-splide .splide__pagination__page.is-active { 
     background-color: #1a1a1a !important; 
     transform: scale(1.2) !important; 
+}
+
+@media (max-width: 767px) {
+    .scroll-tabs {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .scroll-tabs::-webkit-scrollbar { display: none; }
+    .scroll-tabs > a {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
 }

@@ -1,0 +1,40 @@
+<!-- blocks/widgets/map-live-list.html -->
+<div class="flex flex-col w-full"
+     x-data="{
+        init() {
+            this.$el.querySelectorAll('a[data-video-id]').forEach(a => {
+                const v = a.dataset.videoId;
+                const t = encodeURIComponent(a.dataset.videoTitle || '');
+                a.href = 'video.html?v=' + v + '&t=' + t;
+            });
+        }
+     }">
+
+    <div class="flex items-end justify-between border-b border-b-[1.6px] border-[#111110] pb-1 mb-5">
+        <h2 class="text-[#191919] font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1">
+            MAP LIVE
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 w-full">
+
+        <a href="video.html"
+            data-video-id="Cj5oirz0yD8"
+            data-video-title="MAP TOWN HALL sous le thème UN DÉVELOPPEMENT TERRITORIAL INTÉGRÉ POUR UN MAROC ÉMERGENT"
+            class="block w-full group">
+            <div class="relative w-full aspect-square overflow-hidden rounded-[2px]">
+                <img src="assets/images/town-hall-300x300.jpg" alt="MAP Live" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
+                <div class="absolute top-2 left-2">
+                    <span class="bg-red-600 text-white text-[0.65rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-sm flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block"></span>
+                        LIVE
+                    </span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- <div data-include="blocks/global/pagination.html"></div> -->
+
+</div>
