@@ -13,9 +13,16 @@
     --color-heading: #0B1D32; /* The deep navy text color */
 }
 
-/* html[dir="rtl"] { 
+/* html[dir="rtl"] {
     font-family: 'Cairo', sans-serif;
 } */
+
+/* =========================================
+   BACKGROUND IMAGE HELPERS
+   (paths are relative to this CSS file)
+   ========================================= */
+.bg-flash-news { background-image: url('../images/bg-flash-news.svg'); }
+.bg-zellij     { background-image: url('../images/zelij.png'); }
 
 /* =========================================
    TOPBAR STYLES
