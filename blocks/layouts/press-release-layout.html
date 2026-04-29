@@ -1,0 +1,32 @@
+<!-- blocks/layouts/category-layout.html -->
+<div class="w-full">
+    <!-- 12-column grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4">
+
+        <!-- MAIN CONTENT (Center) -->
+        <section class="order-1 lg:order-1 lg:col-span-9 flex flex-col gap-4 lg:pe-8">
+            <div data-include="blocks/widgets/press-release-list.html"></div>
+        </section>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="order-2 lg:order-2 lg:col-span-3 flex flex-col gap-[26px]">
+
+            <!-- Latest News -->
+            <div data-include="blocks/widgets/left-latest-news.html"></div>
+
+            <!-- Phototèque royale -->
+            <div data-include="blocks/widgets/royal-phototheque.html"></div>
+
+            <!-- Dossiers -->
+            <div data-include="blocks/widgets/left-folders.html"></div>
+
+            <!-- WhatsApp channel -->
+            <div data-include="blocks/widgets/right-wa-channel.html"></div>
+
+            <!-- YouTube embed -->
+            <div class="w-full aspect-video" data-include="blocks/widgets/right-yt-embed.html"></div>
+
+        </aside>
+
+    </div>
+</div>

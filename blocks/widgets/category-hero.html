@@ -1,0 +1,42 @@
+<!-- blocks/widgets/category-hero.html -->
+<section class="w-full">
+    <div class="mb-5">
+        <span class="bg-[#E8EBEE] text-[#0B1D32] font-sans font-semibold text-[0.9rem] uppercase px-4 py-1.5
+            rounded-full w-max mb-3">
+            Sport
+        </span>
+    </div>
+
+    <article class="grid grid-cols-1 md:grid-cols-2 md:gap-2 lg:gap-4 items-start">
+            
+        <!-- IMAGE: mobile order 3, desktop left column -->
+        <a href="article.html"
+            class="order-3 md:order-none md:col-start-1 md:row-start-1 flex justify-center items-center w-full overflow-hidden mb-3 md:mb-0">
+            <img src="assets/images/article/sport-1.jpg" alt="Comité Consultatif de Défense"
+                class="max-w-full h-auto md:max-h-[600px] md:object-contain w-full lg:mx-auto">
+        </a>
+
+        <!-- TEXT: display:contents on mobile so children participate in parent grid; flex column on desktop right -->
+        <div class="contents md:flex md:flex-col md:col-start-2 md:row-start-1">
+
+            <!-- Date (mobile order 2; desktop first) -->
+            <time class="order-2 md:order-none text-[#6C6C6C] font-sans font-medium text-[14px] leading-[22.49px] tracking-normal align-middle mb-2">
+                Mardi, 14 Avril 2026
+            </time>
+
+            <!-- Title (mobile order 1; desktop second) -->
+            <a href="article.html" class="order-1 md:order-none block">
+                <h2 class="text-[#191919] font-serif font-bold text-[34px] leading-[42px] tracking-normal align-middle hover:text-primary transition-colors mb-3">
+                    16ème édition de la Course féminine de la Victoire : plus de 12.000 participantes
+                </h2>
+            </a>
+
+            <!-- Excerpt (mobile order 4; desktop third) -->
+            <p class="order-4 md:order-none text-[#6C6C6C] font-sans font-medium text-[18px] leading-[28px] tracking-normal">
+                Rabat - La 16ème édition de la Course féminine de la Victoire, organisée dimanche à Rabat par l'Association « Femme, Réalisations et Valeurs » sous le Haut Patronage de SM le Roi Mohammed VI, a connu la participation de plus de 12.000 femmes de tous âges.
+            </p>
+
+        </div>
+
+    </article>
+</section>

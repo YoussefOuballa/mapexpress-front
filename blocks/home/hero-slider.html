@@ -1,86 +1,111 @@
 <!-- blocks/widgets/hero-slider.html -->
-<div class="splide splide-hero w-full h-full min-h-[400px] lg:min-h-[440px] relative group shadow-sm overflow-hidden lg:-mx-3" 
+<div class="splide splide-hero w-full h-auto lg:!h-full min-h-0 lg:min-h-[435px] relative group shadow-sm overflow-hidden lg:-mx-3" 
      aria-label="Hero News Slider"
      x-data
      x-init="new Splide($el, { 
-        type: 'fade', 
+        type: 'fade',
         rewind: true, 
         autoplay: true,
-        interval: 5000,
+        interval: 3000,
         arrows: true, 
         pagination: true,
+        height: '100%',
+        autoHeight: false,
+        breakpoints: {
+            1024: {
+                height: 'auto',
+                autoHeight: true 
+            }
+        },
         classes: {
             pagination: 'splide__pagination flex items-center gap-2 m-0 p-0 !static !transform-none',
-            page      : 'splide__pagination__page  rounded-full bg-[#caced1] hover:opacity-80 transition-opacity focus:outline-none !static !transform-none opacity-100',
+            page      : 'splide__pagination__page rounded-full bg-[#caced1] hover:opacity-80 transition-opacity focus:outline-none !static !transform-none opacity-100',
         }
      }).mount()">
 
     <!-- Slides Track -->
-    <div class="splide__track w-full h-full">
-        <ul class="splide__list w-full h-full">
+    <div class="splide__track w-full h-auto lg:!h-full">
+        <ul class="splide__list w-full h-auto lg:!h-full">
             
-            <!-- Slide 1 -->
-            <li class="splide__slide flex flex-col md:flex-row w-full h-full bg-[#f2f4f6]">
-                <div class="w-full md:w-[65%] md:h-full shrink-0 relative content-center">
-                    <img src="assets/images/hero/hero-slider-1.jpg" alt="Autre actualité" class="w-full h-auto object-contain" onerror="this.style.display='none'">
-                </div>
-                <div class="w-full md:w-[35%] flex flex-col p-4 lg:p-8 relative">
-                    <div class="mt-2 lg:mt-6">
-                        <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-3 block">
-                            Mardi 14 avril 2026
-                        </span>
-                        <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] tracking-tight leading-[1.3]">
-                            Communiqué du Cabinet Royal
-                        </h2>
-                    </div>
-                </div>
+            <!-- Slide 1 (Landscape) -->
+            <li class="splide__slide flex flex-col lg:flex-row w-full h-auto lg:!h-full bg-[#f2f4f6]">
+                
+                <!-- IMAGE WRAPPER -->
+                <a href="royal-article.html" class="w-full lg:w-[65%] h-auto lg:!h-full shrink-0 relative flex items-center justify-center bg-gray-50 lg:bg-transparent border-b border-gray-200 lg:border-0 overflow-hidden">
+                    <!-- Mobile: h-auto hugs the image, max-h-[60vh] controls portraits. Desktop: absolute fills the box. -->
+                    <img src="assets/images/hero/hero-slider-1.jpg" alt="Communiqué du Cabinet Royal" class="relative lg:absolute inset-0 w-full h-auto max-h-[60vh] lg:max-h-none lg:h-full object-contain z-10 block" onerror="this.style.display='none'">
+                </a>
+
+                <!-- TEXT WRAPPER -->
+                <a href="royal-article.html" class="w-full lg:w-[35%] h-auto lg:!h-full flex flex-col justify-start lg:justify-center p-5 pb-12 lg:p-8 lg:pb-8 relative">
+                    <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-2 lg:mb-3 block">
+                        Mardi 14 avril 2026
+                    </span>
+                    <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] hover:text-primary tracking-tight leading-[1.3] lg:mb-8">
+                        Communiqué du Cabinet Royal
+                    </h2>
+                </a>
             </li>
 
-            <!-- Slide 2 (Added so scrolling actually works!) -->
-            <li class="splide__slide flex flex-col md:flex-row w-full h-full bg-[#f2f4f6]">
-                <div class="w-full md:w-[65%] md:h-full shrink-0 relative content-center">
-                    <img src="assets/images/hero/hero-slider-2.jpg" alt="Autre actualité" class="w-full h-auto object-contain" onerror="this.style.display='none'">
-                </div>
-                <div class="w-full md:w-[35%] flex flex-col p-4 lg:p-8 relative">
-                    <div class="mt-2 lg:mt-6">
-                        <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-3 block">
-                            Samedi 25 Avril 2026
-                        </span>
-                        <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] tracking-tight leading-[1.3]">
-                            Tour Mohammed VI : vitrine du renouveau architectural du Maroc, selon un média brésilien
-                        </h2>
-                    </div>
-                </div>
+            <!-- Slide 2 (Landscape) -->
+            <li class="splide__slide flex flex-col lg:flex-row w-full h-auto lg:!h-full bg-[#f2f4f6]">
+                <a href="article.html" class="w-full lg:w-[65%] h-auto lg:!h-full shrink-0 relative flex items-center justify-center bg-gray-50 lg:bg-transparent border-b border-gray-200 lg:border-0 overflow-hidden">
+                    <img src="assets/images/hero/hero-slider-2.jpg" alt="Tour Mohammed VI" class="relative lg:absolute inset-0 w-full h-auto max-h-[60vh] lg:max-h-none lg:h-full object-contain z-10 block" onerror="this.style.display='none'">
+                </a>
+
+                <a href="article.html" class="w-full lg:w-[35%] h-auto lg:!h-full flex flex-col justify-start lg:justify-center p-5 pb-12 lg:p-8 lg:pb-8 relative">
+                    <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-2 lg:mb-3 block">
+                        Samedi 25 Avril 2026
+                    </span>
+                    <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] hover:text-primary tracking-tight leading-[1.3] lg:mb-8">
+                        Tour Mohammed VI : vitrine du renouveau architectural du Maroc, selon un média brésilien
+                    </h2>
+                </a>
             </li>
 
-            <!-- Slide 3 -->
-            <li class="splide__slide flex flex-col md:flex-row w-full h-full bg-[#f2f4f6]">
-                <div class="w-full md:w-[65%] md:h-full shrink-0 relative content-center">
-                    <img src="assets/images/hero/hero-slider-3.jpg" alt="Cabinet Royal" class="w-full h-auto object-contain" onerror="this.style.display='none'">
-                </div>
-                <div class="w-full md:w-[35%] flex flex-col p-4 lg:p-8 relative">
-                    <div class="mt-2 lg:mt-6">
-                        <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-3 block">
-                            Dimanche 25 Avril 2026
-                        </span>
-                        <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] tracking-tight leading-[1.3]">
-                            SM le Roi félicite la présidente tanzanienne à l'occasion de la fête nationale de son pays
-                        </h2>
-                    </div>
-                </div>
+            <!-- Slide 3 (Landscape) -->
+            <li class="splide__slide flex flex-col lg:flex-row w-full h-auto lg:!h-full bg-[#f2f4f6]">
+                <a href="princely-article.html" class="w-full lg:w-[65%] h-auto lg:!h-full shrink-0 relative flex items-center justify-center bg-gray-50 lg:bg-transparent border-b border-gray-200 lg:border-0 overflow-hidden">
+                    <img src="assets/images/hero/hero-slider-7.jpg" alt="Cabinet Royal" class="relative lg:absolute inset-0 w-full h-auto max-h-[60vh] lg:max-h-none lg:h-full object-contain z-10 block" onerror="this.style.display='none'">
+                </a>
+
+                <a href="princely-article.html" class="w-full lg:w-[35%] h-auto lg:!h-full flex flex-col justify-start lg:justify-center p-5 pb-12 lg:p-8 lg:pb-8 relative">
+                    <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-2 lg:mb-3 block">
+                        Dimanche 25 Avril 2026
+                    </span>
+                    <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] hover:text-primary tracking-tight leading-[1.3] lg:mb-8">
+                        SAR le Prince Moulay Rachid préside à Meknès l'ouverture de la 18e édition du Salon International de l'Agriculture au Maroc
+                    </h2>
+                </a>
+            </li>
+
+            <!-- Slide 4 -->
+            <li class="splide__slide flex flex-col lg:flex-row w-full h-auto lg:!h-full bg-[#f2f4f6]">
+                <a href="article.html" class="w-full lg:w-[65%] h-auto lg:!h-full shrink-0 relative flex items-center justify-center bg-gray-50 lg:bg-transparent border-b border-gray-200 lg:border-0 overflow-hidden">
+                    <img src="assets/images/hero/hero-slider-5.jpg" alt="Cabinet Royal" class="relative lg:absolute inset-0 w-full h-auto max-h-[60vh] lg:max-h-none lg:h-full object-contain z-10 block" onerror="this.style.display='none'">
+                </a>
+
+                <a href="article.html" class="w-full lg:w-[35%] h-auto lg:!h-full flex flex-col justify-start lg:justify-center p-5 pb-12 lg:p-8 lg:pb-8 relative">
+                    <span class="text-[#575E6B] font-inter text-[0.85rem] font-medium mb-2 lg:mb-3 block">
+                        Samedi 24 Avril 2026
+                    </span>
+                    <h2 class="text-[1.4rem] lg:text-[1.65rem] font-serif font-semibold text-[#191919] hover:text-primary tracking-tight leading-[1.3] lg:mb-8">
+                        Le Royaume du Maroc condamne l'attaque armée ayant visé une réception à Washington, en présence du Président américain SEM Donald Trump (source du MAE)
+                    </h2>
+                </a>
             </li>
 
         </ul>
     </div>
     
     <!-- Functional Controls connected to Splide -->
-    <div class="absolute bottom-5 right-[40%] md:bottom-10 md:right-10 flex items-center gap-7 z-10">
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 lg:bottom-10 lg:right-10 lg:left-auto lg:translate-x-0 flex items-center gap-7 z-10 w-max">
         
-        <!-- Splide will automatically generate the dots inside this UL -->
+        <!-- Dots -->
         <ul class="splide__pagination flex items-center gap-2 m-0 p-0 !static !transform-none"></ul>
         
-        <!-- Slider Navigation Arrows -->
-        <div class="hidden md:flex splide__arrows flex items-center gap-3">
+        <!-- Arrows (Desktop Only) -->
+        <div class="hidden lg:flex splide__arrows items-center gap-3">
             <button class="splide__arrow splide__arrow--prev w-9 h-9 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)] flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors focus:outline-none !static !transform-none opacity-100 disabled:opacity-50">
                 <i class="fa-solid fa-chevron-left text-gray-800 text-[0.8rem]"></i>
             </button>

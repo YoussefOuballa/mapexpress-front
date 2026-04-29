@@ -1,0 +1,104 @@
+<!-- blocks/widgets/article-body-p2.html -->
+<article class="flex flex-col w-full">
+
+    <!-- ==============================================
+         1. BREADCRUMB
+         ============================================== -->
+    <nav class="flex items-start text-[#191919] font-medium text-[#6C6C6C] text-[0.8rem] font-sans">
+        <a href="/" class="hover:text-primary transition-colors">Accueil</a>
+        <span class="mx-2">&gt;</span>
+        <a href="category.html?c=Sport" class="hover:text-primary transition-colors">Sport</a>
+    </nav>
+
+    <!-- billboard ads -->
+    <div data-include="blocks/global/billboard-ad.html" class="w-full my-2"></div>
+
+    <!-- ==============================================
+         2. ARTICLE TITLE
+         ============================================== -->
+    <h1 class="text-[#0B1D32] font-semibold text-3xl md:text-[2rem] leading-[1.2] font-serif mb-2 lg:mb-4">
+        Zakaria El Ouahdi : Jouer au Mondial serait l'aboutissement d'un rêve d'enfant
+    </h1>
+
+    <div class="flex items-center text-[#868C98] font-medium text-sm font-sans mb-3 lg:mb-5">
+        <i class="fa-regular fa-clock text-[1.1rem] me-2"></i>
+        <time>Samedi 18 Avril 2026 à 12:57</time>
+    </div>
+
+    <!-- ==============================================
+         3. ARTICLE BODY (Text seamlessly wrapping image)
+         ============================================== -->
+    <div class="w-full clearfix text-[#6C6C6C] leading-[1.7] font-sans text-[0.95rem] font-normal">
+        
+        <!-- THE FLOATING IMAGE -->
+        <div class="float-none md:float-right mb-2 md:ms-5 lg:ms-6 shrink-0 group w-full md:w-auto md:max-w-[50%] lg:max-w-[60%]">
+            <img src="assets/images/article/main-1.png" alt="Délégation marocaine aux USA" class="w-full md:w-auto h-auto max-h-[450px] object-cover">
+        </div>
+
+        <!-- THE LEAD CONTENT -->
+        <!-- No flex wrapper, just a standard paragraph -->
+        <p class="italic font-bold text-[#191919] mb-2 lg:mb-3">
+            Bruxelles - Le latéral droit du KRC Genk, Zakaria El Ouahdi, vise une place avec le Maroc au prochain Mondial, un objectif qu'il présente comme “un rêve d'enfant”, malgré une concurrence particulièrement rude à son poste.
+        </p>
+
+        <p class="mb-2 text-[#3F3F3F]">
+            “Jouer une Coupe du monde avec le Maroc serait l'aboutissement d'un rêve d'enfant”, a confié Zakaria El Ouahdi dans un entretien publié samedi par le quotidien belge “HBVL”, reconnaissant dans le même temps que la concurrence pour une place en sélection reste “extrêmement forte”.
+        </p>
+
+        <p class="mb-2 text-[#3F3F3F]">
+            “Achraf Hakimi est le meilleur latéral droit du monde, Noussair Mazraoui joue à Manchester United, et Omar El Hilali de l'Espanyol est aussi un joueur de très haut niveau”, a-t-il expliqué, notant que le sélectionneur national Mohamed Ouahbi dispose également de plusieurs options sur le flanc gauche, avec Salah-Eddine du PSV et El Karouani d'Utrecht.
+        </p>
+
+        <p class="mb-2 text-[#3F3F3F]">
+           Appelé récemment en sélection A, Zakaria El Ouahdi (23 ans) a fait une première apparition en match amical face au Paraguay fin mars, espérant avoir “laissé une bonne impression”.
+        </p>
+
+        <p class="mb-2 text-[#3F3F3F]">
+           Passé par les sélections de jeunes, il avait remporté la Coupe d'Afrique des nations U23 sous les ordres d'Issame Charaï, une expérience qu'il décrit comme déterminante dans son parcours international et dans le renforcement de son attachement au maillot marocain.
+        </p>
+
+        <p class="mb-2 text-[#3F3F3F]">
+           A l'approche des prochaines échéances, le défenseur insiste sur la nécessité de continuer à progresser et de “prouver qu'il est en forme” malgré une saison exceptionnelle avec KRC Genk, marquée par 11 buts et 3 passes décisives en 37 matchs.
+        </p>
+
+         <p class="mb-2 text-[#3F3F3F]">
+            Zakaria El Ouahdi a été nommé Lion Belge 2025, une distinction qui récompense le meilleur joueur d'origine maghrébine évoluant dans le championnat de Belgique de première division.
+        </p>
+
+    </div>
+
+    <div class="w-full flex gap-3 mt-4 lg:mt-6"  
+        x-data="{ shareOpen: false, copied: false }" 
+        @click.away="shareOpen = false">
+        <!-- Social Media Circles -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.mapexpress.ma/actualite/sports/zakaria-el-ouahdi-jouer-au-mondial-laboutissement-dun-reve-denfant/" target="_blank" rel="noopener noreferrer" class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] hover:bg-gray-50 hover:border-[#116eb7] hover:text-[#116eb7] transition-all text-lg" aria-label="Partager sur Facebook">
+            <i class="fa-brands fa-facebook-f text-[0.9rem]"></i>
+        </a>
+        
+        <a href="https://x.com/intent/tweet?url=https://www.mapexpress.ma/actualite/sports/zakaria-el-ouahdi-jouer-au-mondial-laboutissement-dun-reve-denfant/" target="_blank" rel="noopener noreferrer" class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] hover:bg-gray-50 hover:border-[#116eb7] hover:text-[#116eb7] transition-all text-lg" aria-label="Partager sur X">
+            <i class="fa-brands fa-x-twitter text-[0.9rem]"></i>
+        </a>
+        
+        <a href="https://www.linkedin.com/feed/?shareUrl=https://www.mapexpress.ma/actualite/sports/zakaria-el-ouahdi-jouer-au-mondial-laboutissement-dun-reve-denfant/" target="_blank" rel="noopener noreferrer"  class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] hover:bg-gray-50 hover:border-[#116eb7] hover:text-[#116eb7] transition-all text-lg" aria-label="Partager sur LinkedIn">
+            <i class="fa-brands fa-linkedin-in text-[0.9rem]"></i>
+        </a>
+        
+        <a href="https://api.whatsapp.com/send?text=https://www.mapexpress.ma/actualite/sports/zakaria-el-ouahdi-jouer-au-mondial-laboutissement-dun-reve-denfant/" target="_blank" rel="noopener noreferrer"  class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] hover:bg-gray-50 hover:border-[#116eb7] hover:text-[#116eb7] transition-all text-lg" aria-label="Partager sur WhatsApp">
+            <i class="fa-brands fa-whatsapp text-[0.95rem]"></i>
+        </a>
+
+        <!-- Copy Link Button -->
+        <button @click="navigator.clipboard.writeText(window.location.href); copied = true; setTimeout(() => copied = false, 2500)" 
+                class="flex items-center gap-2 sm:gap-3 ml-1 group focus:outline-none">
+            <div class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] group-hover:bg-gray-50 group-hover:border-[#116eb7] group-hover:text-[#116eb7] transition-all relative p-2">
+                <i class="fa-solid fa-link text-[0.85rem]" x-show="!copied"></i>
+                <i class="fa-solid fa-check text-green-600 text-[0.85rem]" x-show="copied" style="display: none;"></i>
+            </div>
+            <span class="font-sans font-medium text-[0.85rem] transition-colors"
+                :class="copied ? 'text-green-600' : 'text-[#0b1a30] group-hover:text-[#116eb7]'"
+                x-text="copied ? 'Lien copié !' : 'Copier le lien'">
+            </span>
+        </button>
+    </div>
+
+</article>

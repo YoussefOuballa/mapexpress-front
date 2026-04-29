@@ -1,9 +1,8 @@
-<div x-data="{ scrolled: false, mobileMenuOpen: false }" 
+<div x-data="{ scrolled: false, mobileMenuOpen: false, activeMenu: null, menuTimer: null }" 
      x-init="$watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '')"
      @scroll.window="scrolled = (window.pageYOffset > (scrolled ? 20 : 250))"
-     class="w-full bg-white  bg-center bg-cover border-b border-gray-200 relative overflow-visible transition-[height] duration-300 ease-in-out z-50"
-     style="background-image: url('assets/images/header-pattern-bg.png');"
-     :class="scrolled ? 'py-2' : 'py-0'">
+     class="w-full bg-white bg-center bg-cover border-b border-gray-200 relative overflow-visible transition-[height] duration-300 ease-in-out z-50 py-2"
+     style="background-image: url('assets/images/header-pattern-bg.png');">
 
     <!-- COLOR OVERLAY: This forces the 65% white opacity OVER the background image -->
     <div class="absolute inset-0 bg-white/15 z-0 pointer-events-none"></div>
@@ -11,10 +10,10 @@
     <!-- MAIN CONTAINER -->
     <div class="relative z-10 container mx-auto px-4 lg:px-8 flex flex-col justify-center h-full">
 
-        <div class="hidden lg:flex w-full flex gap-5 pt-2"
+        <div class="hidden w-full flex gap-5 pt-2"
             :class="scrolled ? 'opacity-0 w-0 h-0 hidden' : 'opacity-100'">
 
-            <a href="https://www.maptv.ma/" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5"
+            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5"
                 :class="scrolled ? 'opacity-0 w-0 h-0 hidden' : 'opacity-100'">
                 <img src="assets/images/top-media/headphone.svg" alt="headphone" class="h-[16px] w-[16px]">
                 <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">Radio rim</span>
@@ -26,7 +25,7 @@
                 <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">TV</span>
             </a>
 
-            <a href="https://www.maptv.ma/" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5"
+            <a href="#" class="flex items-end gap-1.5"
                 :class="scrolled ? 'opacity-0 w-0 h-0 hidden' : 'opacity-100'">
                 <img src="assets/images/top-media/chromecast.svg" alt="chromecast" class="h-[16px] w-[16px]">
                 <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">MAP LIVE</span>
@@ -39,10 +38,10 @@
              :class="scrolled ? 'flex-row items-center justify-between' : 'flex-col justify-center'">
             
             <!-- ==============================================
-                 GROUP 1: Date, Logo, Socials (Top Row)
+                 GROUP 1: Date, Logo, Socials (Top Row) — hidden on mobile
                  ============================================== -->
-            <div class="flex items-center transition-all duration-300 w-full"
-                 :class="scrolled ? 'w-auto py-0 shrink-0' : 'justify-between py-2'">
+            <div class="hidden md:flex items-center transition-all duration-300 w-full"
+                 :class="scrolled ? 'w-auto py-0 shrink-0' : 'justify-between pt-2 pb-4'">
                 
                 <!-- Date (Hides on scroll) -->
                 <div class="hidden md:block w-1/4 h-auto transition-all duration-300" 
@@ -67,7 +66,7 @@
 
                 <!-- Logo  -->
                 <a href="/" class="shrink-0 block">
-                    <img src="assets/images/logo-header.png" alt="logo" 
+                    <img src="assets/images/logo-new.svg" alt="logo" 
                         class="w-auto object-contain transition-all duration-500 ease-in-out transform-gpu h-[40px]"
                         :class="scrolled ? 'lg:h-[30px] scale-95 opacity-90' : 'lg:h-[57px] scale-100 opacity-100'">
                 </a>
@@ -83,17 +82,24 @@
                     <a href="https://whatsapp.com/channel/0029VanBf0k5kg7AVVCfQv1s" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
-
+            
             <!-- ==============================================
                  GROUP 2: Navigation Menu & Tools (Bottom Row)
                  ============================================== -->
-            <div class="flex items-center justify-between transition-all duration-300">
+            <div class="flex items-center justify-between w-full md:w-auto transition-all duration-300">
                 
                 <!-- Desktop Navigation Menu -->
                 <nav class="hidden lg:flex items-center gap-5 font-sans font-medium text-[#191919] transition-all duration-300"
                      :class="scrolled ? 'text-[0.8rem]' : 'text-[0.85rem]'">
                     <a href="index.html" class="font-extrabold text-[#0a1e3f] hover:text-primary py-1">Accueil</a>
-                    <a href="category.html" class="hover:text-primary transition-colors py-1">Politique</a>
+                    <a href="#"
+                        @mouseenter="clearTimeout(menuTimer); activeMenu = 'politique'"
+                        @mouseleave="menuTimer = setTimeout(() => { activeMenu = null }, 300)"
+                        class="hover:text-primary transition-colors py-1 flex items-center gap-1">
+                        Politique
+                        <i class="fa-solid fa-chevron-down text-[0.65rem] mt-[1px] transition-transform duration-200"
+                        :class="activeMenu === 'politique' ? 'rotate-180 text-primary' : ''"></i>
+                    </a>
                     <a href="category.html" class="hover:text-primary transition-colors py-1">Société</a>
                     <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Économie et Finances</a>
                     <a href="category.html" class="hover:text-primary transition-colors py-1 whitespace-nowrap">Culture et Médias</a>
@@ -109,9 +115,15 @@
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
 
-                <!-- Tools (Search & Language) -->
+                <!-- Mobile Logo: centered via mx-auto, then nudged right via translate-x -->
+                <a href="/" class="md:hidden shrink-0 block mx-auto translate-x-6">
+                    <img src="assets/images/logo-new.svg" alt="logo"
+                        class="h-[40px] w-auto object-contain">
+                </a>
+ 
+                <!-- Tools (Search & Language) — mobile stays fully visible regardless of scroll. On md+ collapse on scroll. -->
                 <div class="flex items-center gap-3 lg:gap-4 shrink-0 transition-all duration-300 lg:pl-4"
-                    :class="scrolled ? 'opacity-0 w-0 hidden' : 'opacity-100'">
+                    :class="scrolled ? 'md:opacity-0 md:pointer-events-none md:w-0 md:hidden' : 'opacity-100'">
                     
                     <!-- Search Dropdown -->
                     <div class="relative hidden sm:block" x-data="{ searchOpen: false }" @click.away="searchOpen = false">
@@ -126,7 +138,7 @@
                     </div>
 
                     <!-- Static Language Links (per MapExpress image) -->
-                    <div class="flex items-center gap-2 text-[0.85rem] font-medium text-[#191919]">
+                    <div class="flex items-center gap-2 text-[0.55rem] md:text-[0.85rem] font-medium text-[#191919]">
                         <a href="#" class="hover:text-primary transition-colors">Arabe</a>
                         <div class="h-[15px] w-[2px] bg-gray-300"></div>
                         <a href="#" class="hover:text-primary transition-colors">Français</a>
@@ -135,6 +147,44 @@
             </div>
         </div>
     </div>
+
+    <!-- ==============================================
+     MEGA MENU: POLITIQUE (Desktop Only)
+     ============================================== -->
+<div x-show="activeMenu === 'politique'"
+     @mouseenter="clearTimeout(menuTimer); activeMenu = 'politique'"
+     @mouseleave="menuTimer = setTimeout(() => { activeMenu = null }, 300)"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 -translate-y-2"
+     x-transition:enter-end="opacity-100 translate-y-0"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100 translate-y-0"
+     x-transition:leave-end="opacity-0 -translate-y-2"
+     style="display: none;"
+     class="hidden lg:block absolute top-full start-0 w-full bg-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary z-40 py-6">
+
+    <div class="container mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-3 gap-6">
+
+            <div class="flex flex-col gap-3">
+                <a href="royal-activities.html" class="text-[0.85rem] text-gray-700 hover:text-primary transition-colors">Activités Royales</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="princely-activities.html" class="text-[0.85rem] text-gray-700 hover:text-primary transition-colors">Activités Princières</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="category.html?c=Activités Parlementaires" class="text-[0.85rem] text-gray-700 hover:text-primary transition-colors">Activités Parlementaires</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="category.html?c=Activités Gouvernementales" class="text-[0.85rem] text-gray-700 hover:text-primary transition-colors">Activités Gouvernementales</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="category.html?c=Activités Partisanes et Syndicales" class="text-[0.85rem] text-gray-700 hover:text-primary transition-colors">Activités Partisanes et Syndicales</a>
+            </div>
+
+        </div>
+    </div>
+</div>
 
     <!-- ==============================================
          MOBILE BACKDROP OVERLAY
@@ -152,7 +202,21 @@
     <div x-show="mobileMenuOpen" x-transition style="display: none;" class="lg:hidden w-full bg-white border-t border-gray-100 absolute start-0 top-full shadow-lg z-50 max-h-[80vh] overflow-y-auto">
         <ul class="flex flex-col py-2">
             <li><a href="/" class="block px-6 py-3 font-sans font-semibold text-primary bg-blue-50">Accueil</a></li>
-            <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Politique</a></li>
+
+            <li x-data="{ open: false }" class="border-t border-gray-50">
+                <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-3 font-sans font-semibold text-[#0b1a30] hover:bg-gray-50 transition-colors focus:outline-none">
+                    Politique
+                    <i class="fa-solid fa-chevron-down text-[0.7rem] transition-transform duration-200" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                </button>
+                <ul x-show="open" x-transition class="bg-gray-50 flex flex-col border-t border-gray-100" style="display: none;">
+                    <li><a href="royal-activities.html" class="block px-10 py-2.5 text-sm text-gray-600 hover:text-primary transition-colors">Activités Royales</a></li>
+                    <li><a href="princely-activities.html" class="block px-10 py-2.5 text-sm text-gray-600 hover:text-primary transition-colors">Activités Princières</a></li>
+                    <li><a href="category.html?c=Activités Parlementaires" class="block px-10 py-2.5 text-sm text-gray-600 hover:text-primary transition-colors">Activités Parlementaires</a></li>
+                    <li><a href="category.html?c=Activités Gouvernementales" class="block px-10 py-2.5 text-sm text-gray-600 hover:text-primary transition-colors">Activités Gouvernementales</a></li>
+                    <li><a href="category.html?c=Activités Partisanes et Syndicales" class="block px-10 py-2.5 text-sm text-gray-600 hover:text-primary transition-colors">Activités Partisanes et Syndicales</a></li>
+                </ul>
+            </li>
+
             <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Société</a></li>
             <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Économie et Finances</a></li>
             <li><a href="category.html" class="block px-6 py-3 font-sans font-semibold text-[#0b1a30] border-t border-gray-50 hover:bg-gray-50 transition-colors">Culture et Médias</a></li>
@@ -165,9 +229,9 @@
             <!-- Mobile Socials & Lang Links -->
             <li class="flex flex-col items-center justify-center gap-4 py-6 bg-white border-t border-gray-100 mt-2">
                 
-                <div class="flex lg:hidden w-full flex justify-center gap-5 pb-5 border-b border-gray-100">
+                <div class="hidden w-full justify-center gap-5 pb-5 border-b border-gray-100">
 
-                    <a href="https://www.maptv.ma/" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5">
                         <img src="assets/images/top-media/headphone.svg" alt="headphone" class="h-[16px] w-[16px]">
                         <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">Radio rim</span>
                     </a>
@@ -177,7 +241,7 @@
                         <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">TV</span>
                     </a>
 
-                    <a href="https://www.maptv.ma/" target="_blank" rel="noopener noreferrer" class="flex items-end gap-1.5">
+                    <a href="#" class="flex items-end gap-1.5">
                         <img src="assets/images/top-media/chromecast.svg" alt="chromecast" class="h-[16px] w-[16px]">
                         <span class="text-[#191919] font-condensed font-semibold text-[14px] leading-[1] hover:underline">MAP LIVE</span>
                     </a>

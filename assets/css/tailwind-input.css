@@ -1,0 +1,21 @@
+/* assets/css/tailwind-input.css
+ *
+ * Tailwind v4 input — mirrors the runtime config in assets/js/tailwind.config.js
+ * Build: npx @tailwindcss/cli -i assets/css/tailwind-input.css -o assets/css/tailwind-output.css --minify
+ *   or: ./tailwindcss.exe -i assets/css/tailwind-input.css -o assets/css/tailwind-output.css --minify
+ */
+
+@import "tailwindcss";
+
+/* Custom theme — generates bg-primary, text-primary, font-condensed, etc. */
+@theme {
+    --color-primary: #005EB8;
+    --color-primary-hover: #004280;
+    --color-danger: #e62e4d;
+    --color-dark: #111827;
+    --color-light: #f3f4f6;
+
+    --font-sans: "Inter", "Cairo", sans-serif;
+    --font-serif: "Barlow Condensed", "Cairo", serif;
+    --font-condensed: "Roboto Condensed", "Cairo", sans-serif;
+}

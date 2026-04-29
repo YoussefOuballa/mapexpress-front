@@ -2,20 +2,28 @@
 <div class="flex flex-col w-full items-center">
     
     <!-- Rotating Ad Container -->
-    <!-- Alpine automatically cycles 'active' from 0 to 1 every 3000ms (3 seconds) -->
-    <div x-data="{ active: 0, total: 1 }" 
-         x-init="setInterval(() => active = (active + 1) % total, 3000)" 
-         class="relative w-full h-[300px] aspect-[280/300] flex items-center justify-center overflow-hidden">
+    <!-- On utilise 'grid' et 'place-items-center' pour empiler les publicités au centre sans casser la hauteur -->
+    <div x-data="{ active: 0, total: 2 }" 
+         x-init="if (total > 1) setInterval(() => active = (active + 1) % total, 3000)" 
+         class="w-full grid place-items-center overflow-hidden">
         
         <!-- ==============================================
-             AD 1 (From your source code)
+             AD 1
              ============================================== -->
         <a href="https://cloud.key-expo.com/visit-key-2026?utm_source=banner&utm_medium=referral&utm_campaign=mapenews" 
            target="_blank" rel="noopener noreferrer"
-           class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10 justify-items-center"
+           class="col-start-1 row-start-1 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
            :class="active === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
-            <img src="assets/images/lateral_banners/banner_280x300-1.webp" alt="Advertisement" class="w-[280px] h-[300px] object-contain">
+           
+            <img src="assets/images/lateral_banners/ads-vertical-300x250-1.webp" alt="Advertisement" class="max-w-full h-auto max-h-[600px] object-contain">
         </a>
-
+         
+        <a href="#" 
+           target="_blank" rel="noopener noreferrer"
+           class="col-start-1 row-start-1 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
+           :class="active === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
+            <img src="assets/images/lateral_banners/ads-vertical-300x250-2.webp" alt="Advertisement" class="max-w-full h-auto max-h-[600px] object-contain">
+        </a> 
+        
     </div>
 </div>

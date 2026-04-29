@@ -13,10 +13,13 @@
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/splide.min.css">
     
+        <script src="assets/js/tailwind.min.js"></script>
+        <script src="assets/js/tailwind.config.js"></script>
+
         <script defer src="assets/js/alpine.min.js"></script>
-        <script defer src="assets/js/splide.min.js"></script>
         
-        <link rel="stylesheet" href="assets/css/tailwind-output.css">
+        <script defer src="assets/js/splide.min.js"></script>
+
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body class="bg-white text-gray-800 font-sans antialiased flex flex-col min-h-screen">
@@ -53,25 +56,25 @@
         </header>
 
         <!-- WP REGION: Main Content -->
-        <main class="flex flex-col w-full" id="main-content">
+        <!-- On mobile: all widgets become flex children via `display: contents` on wrappers,
+             ordered by order-[N] classes. On lg+: original layout restored. -->
+        <main class="flex flex-col w-full px-3 sm:px-6 lg:px-0 gap-4 lg:gap-0" id="main-content">
 
-            <section class="flex-grow w-full container mx-auto px-3 sm:px-6 lg:px-8 pb-4 pt-0">
+            <section class="contents lg:block lg:flex-grow lg:w-full lg:container lg:mx-auto lg:px-8 lg:pb-4 lg:pt-0">
                 <!-- Injects the 3-column layout structure -->
-                <div data-include="blocks/layouts/home-layout-top.html" class="max-w-7xl mx-auto px-0"></div>
+                <div data-include="blocks/layouts/home-layout-top.html" class="contents lg:block lg:max-w-7xl lg:mx-auto lg:px-0"></div>
 
-                <div data-include="blocks/global/billboard-ad.html" class="mt-5 w-full"></div>
-                
-                <div data-include="blocks/layouts/home-layout-middle.html" class="mt-4 lg:mt-8 w-full"></div>
-            </section>
-            
-            <section class="w-full overflow-hidden">
-                <div data-include="blocks/global/media-carousel.html"></div>
+                <div data-include="blocks/layouts/home-layout-middle.html" class="contents lg:block lg:mt-8 lg:w-full"></div>
             </section>
 
-            <section class="flex-grow w-full container mx-auto px-3 sm:px-6 lg:px-8 pb-4 pt-0">
-                <div data-include="blocks/layouts/home-layout-bottom.html" class="mt-4 lg:mt-8 w-full"></div>
+            <section class="contents lg:block lg:w-full lg:overflow-hidden">
+                <div data-include="blocks/global/media-carousel.html" class="order-[20] lg:order-none"></div>
             </section>
-            
+
+            <section class="contents lg:block lg:flex-grow lg:w-full lg:container lg:mx-auto lg:px-8 lg:pb-4 lg:pt-0">
+                <div data-include="blocks/layouts/home-layout-bottom.html" class="contents lg:block lg:mt-8 lg:w-full"></div>
+            </section>
+
         </main>
 
 

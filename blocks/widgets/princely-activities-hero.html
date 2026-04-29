@@ -1,0 +1,42 @@
+<!-- blocks/widgets/princely-activities-hero.html -->
+<section class="w-full">
+    <div class="mb-5">
+        <span class="md:order-none bg-[#E8EBEE] text-[#0B1D32] font-sans font-semibold text-[0.9rem] uppercase px-4 py-1.5 w-max">
+            ACTIVITÉS PRINCIÈRES
+        </span>
+    </div>
+
+    <article class="grid grid-cols-1 md:grid-cols-2 md:gap-2 lg:gap-4 items-start">
+            
+        <!-- IMAGE: mobile order 3, desktop left column -->
+        <a href="princely-article.html"
+        class="order-3 md:order-none md:col-start-1 md:row-start-1 flex justify-center items-center w-full overflow-hidden mb-3 md:mb-0">
+            <img src="assets/images/royal_activities/princely-h-1.jpg"
+                alt="SM le Roi préside un Conseil des ministres"
+                class="max-w-full h-auto md:max-h-[600px] md:object-contain w-full lg:mx-auto">
+        </a>
+
+        <!-- TEXT: display:contents on mobile so children participate in parent grid; flex column on desktop right -->
+        <div class="contents md:flex md:flex-col md:col-start-2 md:row-start-1">
+
+            <!-- Date (mobile order 2; desktop first) -->
+            <time class="order-2 md:order-none text-[#6C6C6C] font-sans font-medium text-[14px] leading-[22.49px] tracking-normal align-middle mb-2">
+                14 April 2026
+            </time>
+
+            <!-- Title (mobile order 1; desktop second) -->
+            <a href="princely-article.html" class="order-1 md:order-none block">
+                <h2 class="text-[#191919] font-serif font-bold text-[34px] leading-[42px] tracking-normal align-middle hover:text-primary transition-colors mb-3">
+                    SAR le Prince Moulay Rachid préside à Meknès l'ouverture de la 18e édition du Salon International de l'Agriculture au Maroc
+                </h2>
+            </a>
+
+            <!-- Excerpt (mobile order 4; desktop third) -->
+            <p class="order-4 md:order-none text-[#6C6C6C] font-sans font-medium text-[18px] leading-[28px] tracking-normal">
+                Son Altesse Royale le Prince Moulay Rachid a présidé, lundi au Mechouar Stinia-Sahrij Souani à Meknès, la cérémonie d'ouverture de la 18e édition du Salon International de l'Agriculture au Maroc (SIAM), organisée sous le Haut Patronage de Sa Majesté le Roi Mohammed VI, du 20 au 28 avril, sous le thème «&nbsp;Durabilité de la production animale et souveraineté alimentaire&nbsp;».
+            </p>
+
+        </div>
+
+    </article>
+</section>

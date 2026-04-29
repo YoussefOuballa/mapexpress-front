@@ -11,39 +11,11 @@
     /* HERO SECTION */
     --color-badge: #9F8E75; /* The brown/taupe category color */
     --color-heading: #0B1D32; /* The deep navy text color */
-
-    --font-sans: 'Inter', 'Cairo', sans-serif;
-    --font-serif: 'Barlow Condensed', 'Cairo', serif;
-    --font-condensed: 'Roboto Condensed', 'Cairo', sans-serif;
 }
 
 /* html[dir="rtl"] { 
     font-family: 'Cairo', sans-serif;
 } */
-
-body {
-    font-family: var(--font-sans);
-}
-
-.font-sans {
-    font-family: var(--font-sans);
-}
-
-.font-serif {
-    font-family: var(--font-serif);
-}
-
-.font-condensed {
-    font-family: var(--font-condensed);
-}
-
-.text-primary {
-    color: rgb(0 94 184 / var(--tw-text-opacity, 1));
-}
-
-.text-danger {
-    color: rgb(230 46 77 / var(--tw-text-opacity, 1));
-}
 
 /* =========================================
    TOPBAR STYLES
@@ -111,16 +83,7 @@ body {
     font-weight: 500;
     transition: background-color 0.2s;
 }
-
 .btn-solid:hover { background-color: var(--color-primary-hover); }
-
-.bg-primary {
-    background-color: var(--color-primary);
-}
-
-.bg-danger {
-    background-color: var(--color-danger);
-}
 
 /* =========================================
    NAVBAR STYLES
@@ -305,7 +268,7 @@ html[dir="rtl"] .ticker-content {
     transition: all 0.2s ease;
     background-color: white;
 }
-.slider-arrow:hover {
+.slsplideider-arrow:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
 }
@@ -332,33 +295,6 @@ html[dir="rtl"] .ticker-content {
     border: 1px solid #AEAEAE;
 }
 
-.lg\:-left-16 {
-    left: -4rem;
-}
-
-.lg\:-right-16 {
-    right: -4rem;
-}
-
-@media (max-width: 768px) {
-    .left-0 {
-        left: 0;
-    }
-    .right-0 {
-        right: 0;
-    }
-}
-
-
-
-.bg-white {
-    background-color: #FFF;
-}
-
-.z-10 {
-    z-index: 10;
-}
-
 .splide__arrow:hover {
     border: 1px solid var(--color-primary);
 }
@@ -378,10 +314,6 @@ html[dir="rtl"] .ticker-content {
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
-}
-
-.leading-\[33\.57px\] {
-    line-height: 33.57px;
 }
 
 /* =========================================
@@ -416,10 +348,15 @@ html[dir="rtl"] .ticker-content {
 }
 
 @media (min-width: 1024px) {
+    .map-tv-splide .splide__arrow {
+        width: 32px;
+        height: 32px;
+    }
+
     /* Pinned to top-right of first visible slide */
     .map-tv-splide .map-tv-arrow--up {
-        top: 8px;
-        right: 8px;
+        top: -6px;
+        right: 45%;
         left: auto;
         bottom: auto;
     }
@@ -427,8 +364,8 @@ html[dir="rtl"] .ticker-content {
     /* Pinned to bottom-right of last visible thumbnail
     (offset clears the 2-line title area below each thumbnail) */
     .map-tv-splide .map-tv-arrow--down {
-        bottom: 3.5rem;
-        right: 8px;
+        bottom: -10px;
+        right: 45%;
         left: auto;
         top: auto;
     }

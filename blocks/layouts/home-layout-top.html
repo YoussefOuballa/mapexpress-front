@@ -1,29 +1,26 @@
 <!-- blocks/layouts/home-layout-top.html -->
-<div class="w-full">
+<div class="contents lg:block lg:w-full">
     <!-- Main 12-column Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-10 gap-y-2 lg:gap-3">
-        
+    <div class="contents lg:grid lg:grid-cols-10 lg:gap-3">
+
         <!-- LEFT SIDEBAR (Original Widgets) -->
-        <aside class="contents lg:flex lg:flex-col lg:col-span-3 gap-2 pt-2 lg:pt-4">
+        <aside class="contents lg:flex lg:flex-col lg:col-span-3 lg:gap-2 lg:pt-4">
 
-            <div class="order-5 lg:order-none lg:col-span-4 w-full h-full py-2 lg:py-0" data-include="blocks/widgets/left-latest-news.html"></div>
-            
-            <!-- Mobile Order 6: Royal Media -->
-            <div class="order-6 lg:order-none w-full pb-0" data-include="blocks/widgets/royal-phototheque.html"></div>
+            <div class="order-[2] lg:order-none lg:col-span-4 w-full lg:h-full lg:py-0" data-include="blocks/widgets/left-latest-news.html"></div>
 
-            <!-- Mobile Order 7: Folders -->
-            <div class="order-7 lg:order-none w-full" data-include="blocks/widgets/left-folders.html"></div>
+            <div class="order-[4] lg:order-none w-full lg:pb-0" data-include="blocks/widgets/royal-phototheque.html"></div>
+
+            <div class="order-[7] lg:order-none w-full" data-include="blocks/widgets/left-folders.html"></div>
 
         </aside>
 
         <!-- MAIN CONTENT (Center / Right) -->
-        <section class="contents lg:flex lg:flex-col lg:col-span-7 lg:gap-4 pt-2 lg:pt-4">
-            
-            <div class="order-1 lg:order-none w-full py-2 pt-3 lg:py-0" data-include="blocks/home/hero-slider.html"></div>
+        <section class="contents lg:flex lg:flex-col lg:col-span-7 lg:gap-4 lg:pt-4">
 
-            <!-- Future middle/bottom layout items inside main content can go here -->
-              <!-- NEW: Royal Activities Grid (Placed right under the Hero block) -->
-            <div class="order-2 lg:order-none w-full order-2 lg:order-none mt-0" data-include="blocks/widgets/royal-activities-grid.html">
+            <div class="order-[1] lg:order-none w-full lg:py-0" data-include="blocks/home/hero-slider.html"></div>
+
+            <!-- Royal + Princely Activities Grid -->
+            <div class="order-[3] lg:order-none w-full" data-include="blocks/widgets/royal-activities-grid.html"></div>
 
         </section>
 

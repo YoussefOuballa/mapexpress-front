@@ -1,0 +1,317 @@
+<!-- blocks/widgets/press-release-list.html -->
+<div class="flex flex-col w-full"
+     x-data="{
+        page: 1,
+        totalPages: 15,
+        init() {
+            // Build the video.html?v=...&t=... href just like in MAP TV
+            this.$el.querySelectorAll('a[data-video-id]').forEach(a => {
+                const v = a.dataset.videoId;
+                const t = encodeURIComponent(a.dataset.videoTitle || '');
+                a.href = 'video.html?v=' + v + '&t=' + t;
+            });
+        }
+     }">
+
+    <div class="flex items-end justify-between border-b border-b-[1.6px] border-[#111110] pb-1 mb-5">
+        <h2 class="text-[#191919] font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1">
+        MAP TV
+        </h2>
+    </div>
+
+    <!-- 9 items list -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 w-full">
+        <a href="video.html"
+            data-video-id="epY9P0wV5_A"
+            data-video-title="إقليم تزنيت .. السيد أخنوش يعطي انطلاقة مجموعة من المشاريع التنموية"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/epY9P0wV5_A/0.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                إقليم تزنيت .. السيد أخنوش يعطي انطلاقة مجموعة من المشاريع التنموية
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="_FjvVX2VrlU"
+            data-video-title="مراكش .. السيد مزور يدعو التجار إلى ابتكار حلول جديدة لمواكبة التحولات التي يشهدها القطاع"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/_FjvVX2VrlU/0.jpg"
+                        alt="MAP TV vidéo 3"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+               مراكش .. السيد مزور يدعو التجار إلى ابتكار حلول جديدة لمواكبة التحولات التي يشهدها القطاع
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="082fstznhOI"
+            data-video-title="الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/082fstznhOI/0.jpg"
+                        alt="MAP TV vidéo 4"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="Thq-PV7xWIE"
+            data-video-title="الرباط .. افتتاح ندوة دولية حول دور صناعة النشر في تعزيز الوعي المجتمعي والأمن الفكري"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/Thq-PV7xWIE/0.jpg"
+                        alt="MAP TV vidéo 4"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                الرباط .. افتتاح ندوة دولية حول دور صناعة النشر في تعزيز الوعي المجتمعي والأمن الفكري
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="rboKIt5okKY"
+            data-video-title="السيد بلاوي يجري مباحثات مع المدعية العامة لجمهورية النمسا"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/rboKIt5okKY/0.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+               السيد بلاوي يجري مباحثات مع المدعية العامة لجمهورية النمسا
+            </h3>
+        </a>
+        
+
+        <a href="video.html"
+            data-video-id="ezr3hX4yte8"
+            data-video-title="ندوة تبحث دور الإعلام في التصدي للأخبار الزائفة"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/ezr3hX4yte8/0.jpg"
+                        alt="MAP TV vidéo 3"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+              ندوة تبحث دور الإعلام في التصدي للأخبار الزائفة
+            </h3>
+        </a>
+
+        
+
+        <a href="video.html"
+            data-video-id="PmAf-arje5Y"
+            data-video-title="خبراء أفارقة يدعون إلى أنسنة الفضاء السجني"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                خبراء أفارقة يدعون إلى أنسنة الفضاء السجني
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="9kpBnjlN_zE"
+            data-video-title="إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/9kpBnjlN_zE/hqdefault.jpg"
+                        alt="MAP TV vidéo 3"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="rboKIt5okKY"
+            data-video-title="السيد بلاوي يجري مباحثات مع المدعية العامة لجمهورية النمسا"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/rboKIt5okKY/0.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+               السيد بلاوي يجري مباحثات مع المدعية العامة لجمهورية النمسا
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="Thq-PV7xWIE"
+            data-video-title="إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://img.youtube.com/vi/Thq-PV7xWIE/0.jpg"
+                        alt="MAP TV vidéo 3"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="082fstznhOI"
+            data-video-title="الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/082fstznhOI/hqdefault.jpg"
+                        alt="MAP TV vidéo 4"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="PmAf-arje5Y"
+            data-video-title="خبراء أفارقة يدعون إلى أنسنة الفضاء السجني"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                خبراء أفارقة يدعون إلى أنسنة الفضاء السجني
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="082fstznhOI"
+            data-video-title="الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/082fstznhOI/hqdefault.jpg"
+                        alt="MAP TV vidéo 4"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                الانطلاق الرسمي للدورة الـ22 من تمرين “الأسد الإفريقي”
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="PmAf-arje5Y"
+            data-video-title="خبراء أفارقة يدعون إلى أنسنة الفضاء السجني"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
+                        alt="MAP TV vidéo 2"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                خبراء أفارقة يدعون إلى أنسنة الفضاء السجني
+            </h3>
+        </a>
+
+        <a href="video.html"
+            data-video-id="9kpBnjlN_zE"
+            data-video-title="إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024"
+            class="block w-full group">
+            <div class="relative w-full aspect-video overflow-hidden">
+                <img src="https://i.ytimg.com/vi/9kpBnjlN_zE/hqdefault.jpg"
+                        alt="MAP TV vidéo 3"
+                        class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-[#0B1D32] font-sans font-semibold text-[0.9rem] leading-snug mt-2 [direction:rtl]">
+                إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024
+            </h3>
+        </a>
+
+    </div>
+
+    <!-- Pagination -->
+    <div data-include="blocks/global/pagination.html"></div>
+
+</div>

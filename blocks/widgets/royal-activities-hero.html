@@ -1,0 +1,46 @@
+<!-- blocks/widgets/royal-activities-hero.html -->
+<section class="w-full">
+    <div class="mb-5">
+        <!-- TAG always on top -->
+        <span class="md:col-span-2 md:row-start-1 bg-[#9F8E75] text-white font-sans font-semibold text-[0.9rem] uppercase px-4 py-1.5
+            rounded-full w-max mb-3">
+            Activités Royales
+        </span>
+    </div>
+
+
+
+    <article class="grid grid-cols-1 md:grid-cols-2 md:gap-2 lg:gap-4 items-start">
+
+        <!-- IMAGE: mobile order 3, desktop left column -->
+        <a href="royal-article.html"
+        class="order-3 md:order-none md:col-start-1 md:row-start-1 flex justify-center items-center w-full overflow-hidden mb-3 md:mb-0">
+            <img src="assets/images/royal_activities/royal-5.jpg"
+                alt="SM le Roi préside un Conseil des ministres"
+                class="max-w-full h-auto md:max-h-[600px] md:object-contain w-full lg:mx-auto">
+        </a>
+
+        <!-- TEXT: display:contents on mobile so children participate in parent grid; flex column on desktop right -->
+        <div class="contents md:flex md:flex-col md:col-start-2 md:row-start-1">
+
+            <!-- Date (mobile order 2) -->
+            <time class="order-2 md:order-none text-[#6C6C6C] font-sans font-medium text-[14px] leading-[22.49px] tracking-normal align-middle mb-2">
+                Mercredi, 15 avril, 2026 à 11:53
+            </time>
+
+            <!-- Title (mobile order 1) -->
+            <a href="royal-article.html" class="order-1 md:order-none block">
+                <h2 class="text-[#191919] font-serif font-bold text-[34px] leading-[42px] tracking-normal align-middle hover:text-primary transition-colors mb-3">
+                    SM le Roi félicite M. Romuald Wadagni suite à son élection Président de la République du Bénin
+                </h2>
+            </a>
+
+            <!-- Excerpt (mobile order 4) -->
+            <p class="order-4 md:order-none text-[#6C6C6C] font-sans font-medium text-[18px] leading-[28px] tracking-normal">
+                Sa Majesté le Roi Mohammed VI a adressé un message de félicitations à M. Romuald Wadagni suite à son élection Président de la République du Bénin.
+            </p>
+
+        </div>
+
+    </article>
+</section>

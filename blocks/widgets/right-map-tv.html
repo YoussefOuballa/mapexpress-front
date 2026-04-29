@@ -2,6 +2,13 @@
 <div class="flex flex-col w-full"
      x-data="{
         init() {
+            // Build video.html?v=...&t=... hrefs from data-* attributes (set before Splide mounts so cloned slides inherit them)
+            this.$el.querySelectorAll('a[data-video-id]').forEach(a => {
+                const v = a.dataset.videoId;
+                const t = encodeURIComponent(a.dataset.videoTitle || '');
+                a.href = 'video.html?v=' + v + '&t=' + t;
+            });
+
             const checkSplide = setInterval(() => {
                 if (window.Splide) {
                     clearInterval(checkSplide);
@@ -24,15 +31,15 @@
                         // Breakpoints for Mobile & Tablet
                         breakpoints: {
                             1024: { // Under 1024px (Tablets & Mobile)
-                                direction: 'ltr',    
-                                heightRatio: 0,       
-                                height: 'auto',       
-                                perPage: 2,           
-                                arrows: true,        
-                                pagination: false,     
+                                direction: 'ltr',
+                                heightRatio: 0,
+                                height: 'auto',
+                                perPage: 2,
+                                arrows: true,
+                                pagination: false,
                             },
                             640: { // Under 640px (Mobile Phones)
-                                perPage: 1,           
+                                perPage: 1,
                             }
                         }
                     }).mount();
@@ -42,12 +49,12 @@
      }">
 
     <!-- Header (matches left-folders / media-carousel style) -->
-    <h2 class="text-[#191919] font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110]">
+    <a href="map-tv.html" class="text-[#191919] hover:text-primary transition-colors font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110]">
         MAP TV
-    </h2>
+    </a>
 
     <!-- Vertical/Horizontal Splide Carousel -->
-    <section x-ref="splide" class="splide map-tv-splide relative" aria-label="MAP TV Videos">
+    <section x-ref="splide" class="splide map-tv-splide relative lg:pt-8 lg:py-6" aria-label="MAP TV Videos">
 
         <!-- Custom Up/Down Arrows (Hidden automatically by Splide on Mobile due to breakpoints) -->
         <div class="splide__arrows">
@@ -68,16 +75,17 @@
 
                 <!-- Video 1 -->
                 <li class="splide__slide">
-                    <a href=".mapexpress.ma%2F"
-                       target="_blank" rel="noopener noreferrer"
+                    <a href="video.html"
+                       data-video-id="xd0BY0hwaU0"
+                       data-video-title="آسية بنصالح العلوي تدعو إلى حكامة نقدية عالمية تصون أخلاقيات القانون الدولي في زمن الذكاء الاصطناعي"
                        class="block w-full group">
                         <div class="relative w-full aspect-video overflow-hidden">
                             <img src="https://i.ytimg.com/vi/xd0BY0hwaU0/hqdefault.jpg"
                                  alt="MAP TV vidéo 1"
                                  class="w-full h-full object-cover">
                             <!-- Play overlay -->
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] backdrop-blur-sm flex items-center justify-center shadow-md">
+                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                                <div class="w-10 h-10 rounded-full bg-[#0F172A80] backdrop-blur-sm flex items-center justify-center shadow-md">
                                     <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
                                 </div>
                             </div>
@@ -90,15 +98,16 @@
 
                 <!-- Video 2 -->
                 <li class="splide__slide">
-                    <a href="#"
-                       target="_blank" rel="noopener noreferrer"
+                    <a href="video.html"
+                       data-video-id="PmAf-arje5Y"
+                       data-video-title="خبراء أفارقة يدعون إلى أنسنة الفضاء السجني"
                        class="block w-full group">
                         <div class="relative w-full aspect-video overflow-hidden">
                             <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
                                  alt="MAP TV vidéo 2"
                                  class="w-full h-full object-cover">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                                <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
                                     <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
                                 </div>
                             </div>
@@ -111,15 +120,16 @@
 
                 <!-- Video 3 -->
                 <li class="splide__slide">
-                    <a href="#"
-                       target="_blank" rel="noopener noreferrer"
+                    <a href="video.html"
+                       data-video-id="9kpBnjlN_zE"
+                       data-video-title="إقليم طاطا.. إعادة تأهيل الطرق المتضررة من فيضانات 2024"
                        class="block w-full group">
                         <div class="relative w-full aspect-video overflow-hidden">
                             <img src="https://i.ytimg.com/vi/9kpBnjlN_zE/hqdefault.jpg"
                                  alt="MAP TV vidéo 3"
                                  class="w-full h-full object-cover">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                                <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
                                     <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
                                 </div>
                             </div>
@@ -132,15 +142,16 @@
 
                 <!-- Video 4 -->
                 <li class="splide__slide">
-                    <a href="#"
-                       target="_blank" rel="noopener noreferrer"
+                    <a href="video.html"
+                       data-video-id="cpgtJeT68vw"
+                       data-video-title="انعقاد الاجتماع الأسبوعي لمجلس الحكومة"
                        class="block w-full group">
                         <div class="relative w-full aspect-video overflow-hidden">
                             <img src="https://i.ytimg.com/vi/cpgtJeT68vw/hqdefault.jpg"
                                  alt="MAP TV vidéo 4"
                                  class="w-full h-full object-cover">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                                <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
                                     <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
                                 </div>
                             </div>
@@ -153,15 +164,16 @@
 
                 <!-- Video 5 -->
                 <li class="splide__slide">
-                    <a href="#"
-                       target="_blank" rel="noopener noreferrer"
+                    <a href="video.html"
+                       data-video-id="9WAJrkgrHGk"
+                       data-video-title="السيدة فتاح: قطاع التأمينات آلية حقيقية للصمود في مواجهة التحولات المعقدة"
                        class="block w-full group">
                         <div class="relative w-full aspect-video overflow-hidden">
                             <img src="https://i.ytimg.com/vi/9WAJrkgrHGk/hqdefault.jpg"
-                                 alt="MAP TV vidéo 4"
+                                 alt="MAP TV vidéo 5"
                                  class="w-full h-full object-cover">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="w-12 h-12 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
+                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                                <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
                                     <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
                                 </div>
                             </div>

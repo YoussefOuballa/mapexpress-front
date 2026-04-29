@@ -1,63 +1,129 @@
 <!-- blocks/widgets/latest-news.html -->
-<div class="w-full bg-white border border-gray-100 flex flex-col shadow-sm">
+<div class="w-full h-[450px] lg:h-full lg:min-h-[450px] bg-white border border-gray-100 flex flex-col shadow-sm mb-5"
+     x-data="{ ticker: null }"
+     x-init="ticker = new Splide($refs.tickerSlider, { 
+        type: 'loop',
+        direction: 'ttb',
+        height: '100%',
+        perPage: 6,
+        perMove: 1,
+        pagination: false,
+        arrows: false,
+        autoplay: false,
+        speed: 600,
+        wheel: false,
+        releaseWheel: false,
+        waitForTransition: true,
+        updateOnMove: true,
+     }).mount()">
     
     <!-- HEADER -->
-    <div class="bg-white text-[#191919] py-3 px-4 flex items-center justify-center border-b border-[#E8EBEE]">
+    <div class="bg-white text-[#191919] py-3 px-4 flex items-center justify-center border-b border-[#E8EBEE] shrink-0">
         <h3 class="font-serif font-bold text-[1.2rem] tracking-[0.02em] m-0 leading-none">
             Dernière Heure
         </h3>
     </div>
+
+    <!-- ARROW TOP -->
+    <button @click="ticker.go('<')" class="w-full py-1.5 text-gray-400 hover:text-[#116eb7] transition-colors focus:outline-none flex justify-center shrink-0 bg-white z-10" aria-label="Défiler vers le haut">
+        <i class="fa-solid fa-chevron-up text-[0.8rem]"></i>
+    </button>
     
-    <!-- NEWS LIST -->
-    <div class="flex flex-col px-4 py-3.5">
-        
-        <!-- Item 1 (Active/Dark bullet) -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#1a1a1a]"></span>
-            <p class="font-inter text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                L'INDH au SIAM 2026 : Focus sur les produits du terroir en tant que levier d'inclusion économique des jeunes et d'autonomisation des femmes
-            </p>
-        </a>
-        
-        <!-- Item 2 (Light bullet) -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
-            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                La Chambre des représentants approuve à la majorité le projet de loi relatif aux experts judiciaires
-            </p>
-        </a>
-        
-        <!-- Item 3 -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
-            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                Agriculture : le Portugal entend consolider son positionnement comme allié stratégique du Maroc (ministre)
-            </p>
-        </a>
-        
-        <!-- Item 4 -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
-            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                ONU: M. Hilale scelle un partenariat stratégique entre la Commission de consolidation de la paix et la Banque mondiale
-            </p>
-        </a>
-        
-        <!-- Item 5 -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
-            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                34.000 bénéficiaires pour l'accomplissement du Hajj au titre de la saison 1447H (M. Toufiq)
-            </p>
-        </a>
+    <!-- NEWS LIST (Scrollable Container) -->
+    <!-- relative and flex-grow ensures it takes up all remaining space between the arrows -->
+    <div class="flex-grow relative bg-white overflow-hidden">
+        <div x-ref="tickerSlider" class="splide absolute inset-0 w-full h-full">
+            <div class="splide__track w-full h-full px-4">
+                <ul class="splide__list">
+                
 
-        <!-- Item 6 -->
-        <a href="#" class="group flex items-start gap-3 transition-colors pb-3 last:pb-0">
-            <span class="mt-[0.4rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
-            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.4] group-hover:text-primary transition-colors">
-                L'INDH au SIAM 2026 : Focus sur les produits du terroir en tant que levier d'inclusion économique des jeunes et d'autonomisation des femmes
-            </p>
-        </a>
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                L'INDH au SIAM 2026 : Focus sur les produits du terroir en tant que levier d'inclusion économique des jeunes et d'autonomisation des femmes
+                            </p>
+                        </a>
+                    </li>
+                    
+                    <!-- Item 2 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                La Chambre des représentants approuve à la majorité le projet de loi relatif aux experts judiciaires
+                            </p>
+                        </a>
+                    </li>
+                    
+                    <!-- Item 3 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                Agriculture : le Portugal entend consolider son positionnement comme allié stratégique du Maroc (ministre)
+                            </p>
+                        </a>
+                    </li>
+                    
+                    <!-- Item 4 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                ONU: M. Hilale scelle un partenariat stratégique entre la Commission de consolidation de la paix et la Banque mondiale
+                            </p>
+                        </a>
+                    </li>
+                    
+                    <!-- Item 5 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                34.000 bénéficiaires pour l'accomplissement du Hajj au titre de la saison 1447H (M. Toufiq)
+                            </p>
+                        </a>
+                    </li>
 
+                    <!-- Item 6 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                               Parution d’un nouveau numéro de la Revue des FAR
+                            </p>
+                        </a>
+                    </li>
+
+                    <!-- Item 7 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                Sécurité routière : Baisse de 12% des accidents mortels en milieu urbain durant l'année écoulée
+                            </p>
+                        </a>
+                    </li>
+
+                    <!-- Item 8 -->
+                    <li class="splide__slide flex items-center">
+                        <a href="article.html" class="group flex items-start gap-2.5 transition-colors w-full">
+                            <span class="mt-[0.35rem] shrink-0 w-2 h-2 rounded-full bg-[#dae3ec]"></span>
+                            <p class="font-sans text-[0.8rem] font-medium text-[#191919] leading-[1.35] group-hover:text-[#116eb7] transition-colors line-clamp-3">
+                                Marché boursier : La Bourse de Casablanca clôture la séance dans le vert
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <!-- ARROW BOTTOM -->
+    <button @click="ticker.go('>')" class="w-full py-1.5 text-gray-400 hover:text-[#116eb7] transition-colors focus:outline-none flex justify-center shrink-0 bg-white z-10" aria-label="Défiler vers le bas">
+        <i class="fa-solid fa-chevron-down text-[0.8rem]"></i>
+    </button>
+
 </div>

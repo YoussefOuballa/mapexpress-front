@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Communiqués de presse détail | MAP Express</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/splide.min.css">
+
+        <script src="assets/js/tailwind.min.js"></script>
+        <script src="assets/js/tailwind.config.js"></script>
+
+        <script defer src="assets/js/alpine.min.js"></script>
+
+        <script defer src="assets/js/splide.min.js"></script>
+
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body class="bg-white text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+        <header x-data="{
+                    lastScroll: 0,
+                    isHidden: false,
+                    handleScroll() {
+                        let currentScroll = window.pageYOffset;
+                        if (currentScroll > this.lastScroll && currentScroll > 110) {
+                            this.isHidden = true;
+                        } else if (currentScroll < this.lastScroll || currentScroll <= 0) {
+                            this.isHidden = false;
+                        }
+                        this.lastScroll = currentScroll;
+                    }
+                }"
+                @scroll.window="handleScroll"
+                class="sticky top-0 z-50 w-full flex flex-col shadow-sm bg-white transition-transform duration-300 ease-in-out"
+                :class="isHidden ? '-translate-y-full' : 'translate-y-0'">
+
+            <!-- The Navbar -->
+            <div data-include="blocks/global/header.html"></div>
+
+            <!-- Breaking News -->
+            <div data-include="blocks/global/breaking-news.html"></div>
+
+        </header>
+
+        <main class="flex-grow w-full container mx-auto px-3 lg:px-0 py-3" id="main-content">
+
+            <section class="flex-grow w-full container mx-auto px-0 sm:px-6 lg:px-8 pb-4 pt-0">
+                <div data-include="blocks/layouts/press-release-detail-layout.html" class="max-w-7xl mx-auto px-0"></div>
+            </section>
+
+        </main>
+
+
+        <footer>
+            <div data-include="blocks/global/footer.html"></div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <div data-include="blocks/global/scroll-to-top.html"></div>
+
+        <!-- HTML Component Loader -->
+        <script>
+            async function loadComponents(container = document) {
+                const includes = container.querySelectorAll('[data-include]');
+
+                for (const el of includes) {
+                    const file = el.getAttribute('data-include');
+                    try {
+                        const response = await fetch(file);
+                        if (response.ok) {
+                            el.innerHTML = await response.text();
+                            el.removeAttribute('data-include');
+                            await loadComponents(el);
+                        } else {
+                            el.removeAttribute('data-include');
+                        }
+                    } catch (error) {
+                        console.error('Error loading component:', error);
+                    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => loadComponents());
+        </script>
+    </body>
+</html>

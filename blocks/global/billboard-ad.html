@@ -2,42 +2,31 @@
 <div class="flex flex-col w-full items-center">
     
     <!-- Rotating Ad Container -->
-    <!-- Added max-w-[970px] to strictly limit the width, and mx-auto to center it -->
-    <div x-data="{ active: 0, total: 3 }" 
+    <!-- We use 'grid' here so the items can stack in the exact same cell -->
+    <div x-data="{ active: 0, total: 2 }" 
          x-init="setInterval(() => active = (active + 1) % total, 3000)" 
-         class="relative w-full max-w-[970px] aspect-[970/250] bg-gray-50 flex items-center justify-center overflow-hidden mx-auto">
-        
+         class="w-full max-w-[970px] mx-auto grid">
+
         <!-- ==============================================
              AD 1 
              ============================================== -->
+        <!-- col-start-1 row-start-1 forces it to share the same space as Ad 2 -->
         <a href="https://femm.ma/"
            target="_blank" rel="noopener noreferrer"
-           class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+           class="col-start-1 row-start-1 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
            :class="active === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
-            <!-- Added w-full h-full so it matches the parent constraints exactly -->
-            <img typeof="foaf:Image" src="assets/images/central_banners/leaderboard-970x250-1.jpg" alt="Advertisement" class="w-full h-full object-contain" width="970" height="250">
+            <img typeof="foaf:Image" src="assets/images/central_banners/leaderboard-728x90-1.jpg" alt="Advertisement" class="w-full h-auto max-h-[525px] object-contain">
         </a>
 
         <!-- ==============================================
              AD 2 
              ============================================== -->
-        <!-- Fixed the missing closing quote on href -->
+        <!-- col-start-1 row-start-1 forces it to share the same space as Ad 1 -->
         <a href="https://www.ntla9awfbladna.ma/tabi3at-bladna"
            target="_blank" rel="noopener noreferrer"
-           class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+           class="col-start-1 row-start-1 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
            :class="active === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
-            <img typeof="foaf:Image" src="assets/images/central_banners/leaderboard-970x250-2.jpg" alt="Advertisement" class="w-full h-full object-contain" width="970" height="250">
-        </a>
-
-        <!-- ==============================================
-             AD 3
-             ============================================== -->
-        <!-- Fixed the missing closing quote on href -->
-        <a href="https://hautmorocco.com/"
-           target="_blank" rel="noopener noreferrer"
-           class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-           :class="active === 2 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'">
-            <img typeof="foaf:Image" src="assets/images/central_banners/leaderboard-970x250-3.webp" alt="Advertisement" class="w-full h-full object-contain" width="970" height="250">
+            <img typeof="foaf:Image" src="assets/images/central_banners/leaderboard-728x90-2.webp" alt="Advertisement" class="w-full h-auto max-h-[525px] object-contain">
         </a>
 
     </div>

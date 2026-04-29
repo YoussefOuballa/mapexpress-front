@@ -1,5 +1,15 @@
 <!-- blocks/widgets/right-map-live.html -->
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full"
+     x-data="{
+        init() {
+            // Build the video.html?v=...&t=... href just like in MAP TV
+            this.$el.querySelectorAll('a[data-video-id]').forEach(a => {
+                const v = a.dataset.videoId;
+                const t = encodeURIComponent(a.dataset.videoTitle || '');
+                a.href = 'video.html?v=' + v + '&t=' + t;
+            });
+        }
+     }">
 
     <!-- Header (matches MAP TV style) -->
     <h2 class="text-[#191919] font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110]">
@@ -7,11 +17,12 @@
     </h2>
 
     <!-- Town hall image -->
-    <a href="#" class="block w-full overflow-hidden hover:opacity-90 transition-opacity mb-4">
+    <a href="video.html"
+        data-video-id="Cj5oirz0yD8"
+        data-video-title="MAP TOWN HALL sous le thème “UN DÉVELOPPEMENT TERRITORIAL INTÉGRÉ POUR UN MAROC ÉMERGENT”"
+        class="block w-full overflow-hidden group hover:opacity-90 transition-opacity mb-4 relative rounded-[2px]">
+        
         <img src="assets/images/town-hall-300x300.jpg" alt="Map Live" class="w-full h-auto object-cover">
     </a>
-
-    <!-- Ads vertical Block -->
-    <div data-include="blocks/widgets/right-ads-vertical-3.html"></div>
 
 </div>

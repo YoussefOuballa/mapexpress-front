@@ -1,50 +1,55 @@
 <!-- blocks/home-layout-middle.html -->
-<div class="max-w-7xl mx-auto px-0 mb-8">
+<div class="contents lg:block lg:max-w-7xl lg:mx-auto lg:mb-8">
     <!-- 12-column grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-x-0">
+    <div class="contents lg:grid lg:grid-cols-12 lg:gap-x-0">
 
         <!-- MAIN CONTENT (Center) -->
-        <section class="lg:col-span-9 flex flex-col gap-5 lg:gap-[80px] lg:pr-6">
+        <section class="contents lg:flex lg:flex-col lg:col-span-9 lg:gap-[60px] lg:pr-6">
 
             <!-- Politique category block -->
-            <div data-include="blocks/widgets/center-politique.html"></div>
+            <div class="order-[9] lg:order-none" data-include="blocks/widgets/center-politique.html"></div>
 
             <!-- Activités parlementaires category block -->
-            <div data-include="blocks/widgets/center-activites-parlementaires.html"></div>
+            <div class="order-[10] lg:order-none" data-include="blocks/widgets/center-activites-parlementaires.html"></div>
 
             <!-- Culture et Médias category block -->
-            <div data-include="blocks/widgets/center-culture-medias.html"></div>
+            <div class="order-[11] lg:order-none" data-include="blocks/widgets/center-culture-medias.html"></div>
 
-            <div class="w-full" data-include="blocks/widgets/press-releases.html"></div>
+            <div class="order-[14] lg:order-none w-full" data-include="blocks/widgets/press-releases.html"></div>
 
         </section>
 
         <!-- RIGHT SIDEBAR -->
-        <aside class="lg:col-span-3 flex flex-col gap-3 lg:pl-6 lg:border-l-[1.5px] lg:border-[#F0EFE9]">
+        <aside class="contents lg:flex lg:flex-col lg:col-span-3 lg:gap-3 lg:pl-6 lg:border-l-[1.5px] lg:border-[#F0EFE9]">
 
             <!-- MAP TV vertical videos carousel -->
-            <div data-include="blocks/widgets/right-map-tv.html"></div>
+            <div class="order-[5] lg:order-none" data-include="blocks/widgets/right-map-tv.html"></div>
 
             <!-- Map Live -->
-            <div data-include="blocks/widgets/right-map-live.html"></div>
+            <div class="order-[12] lg:order-none" data-include="blocks/widgets/right-map-live.html"></div>
+
+            <div class="order-[6] lg:order-none" data-include="blocks/widgets/right-radio-stream.html"></div>
+
+            <!-- Ads vertical Block -->
+            <div class="order-[19] lg:order-none" data-include="blocks/widgets/right-ads-vertical-4.html"></div>
 
         </aside>
 
     </div>
 </div>
 
-<div class="max-w-7xl mx-auto px-0 flex flex-col">
+<div class="contents lg:flex lg:flex-col lg:max-w-7xl lg:mx-auto">
     <!-- Row 1: Sport + ad + video -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <section class="lg:col-span-4">
-            <div data-include="blocks/widgets/center-sport.html"></div>
+    <div class="contents lg:grid lg:grid-cols-12 lg:gap-4">
+        <section class="contents lg:block lg:col-span-4">
+            <div class="order-[17] lg:order-none" data-include="blocks/widgets/center-sport.html"></div>
         </section>
-        <section class="lg:col-span-4">
+        <section class="contents lg:block lg:col-span-4">
             <!-- Whatsapp channel Block -->
-            <div class="flex flex-col w-full max-w-[416px] xl:mx-auto xl:w-[350px] xl:h-[330px]" data-include="blocks/widgets/right-wa-channel.html"></div>
+            <div class="order-[13] lg:order-none flex flex-col w-full max-w-[416px] xl:mx-auto xl:w-[350px] xl:h-[330px]" data-include="blocks/widgets/right-wa-channel.html"></div>
         </section>
-        <section class="lg:col-span-4">
-            <div class="w-full aspect-video max-w-[416px] xl:mx-auto xl:w-[416px] xl:h-full xl:max-w-none xl:aspect-auto" data-include="blocks/widgets/right-yt-embed.html"></div>
+        <section class="contents lg:block lg:col-span-4">
+            <div class="order-[15] lg:order-none w-full aspect-video max-w-[416px] xl:mx-auto xl:w-[416px] xl:h-full xl:max-w-none xl:aspect-auto" data-include="blocks/widgets/right-yt-embed.html"></div>
         </section>
     </div>
 </div>

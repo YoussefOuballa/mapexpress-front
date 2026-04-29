@@ -1,0 +1,34 @@
+<!-- blocks/layouts/category-layout.html -->
+<div class="w-full">
+    <!-- 12-column grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-8 gap-4">
+        <!-- ==============================================
+             MAIN CONTENT (Left Side - 8 or 9 Columns)
+             ============================================== -->
+        <section class="lg:col-span-6 flex flex-col lg:pe-8">
+            <!-- The Actual Article Content -->
+            <div data-include="blocks/widgets/article-body.html"></div>
+
+            <div data-include="blocks/widgets/discover-more.html"></div>
+
+        </section>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="lg:col-span-2 flex flex-col gap-2 lg:gap-3">
+            
+            <div class="w-full aspect-video" data-include="blocks/global/banner-ad.html"></div>
+            
+            <div class="lg:col-span-4 w-full h-auto py-2 lg:py-0" data-include="blocks/widgets/left-latest-news.html"></div>
+            
+            <div class="w-full pb-0" data-include="blocks/widgets/royal-phototheque.html"></div>
+
+            <div class="w-full" data-include="blocks/widgets/left-folders.html"></div>
+
+            <div class="w-full" data-include="blocks/widgets/right-wa-channel.html"></div>
+
+            <div class="w-full aspect-video" data-include="blocks/widgets/right-yt-embed.html"></div>
+
+        </aside>
+
+    </div>
+</div>
