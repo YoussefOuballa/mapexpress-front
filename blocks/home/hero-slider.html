@@ -2,26 +2,28 @@
 <div class="splide splide-hero w-full h-auto lg:!h-full min-h-0 lg:min-h-[435px] relative group shadow-sm overflow-hidden lg:-mx-3" 
      aria-label="Hero News Slider"
      x-data
-     x-init="new Splide($el, { 
-        type: 'fade',
-        rewind: true, 
-        autoplay: true,
-        interval: 3000,
-        arrows: true, 
-        pagination: true,
-        height: '100%',
-        autoHeight: false,
-        breakpoints: {
-            1024: {
-                height: 'auto',
-                autoHeight: true 
+     x-init="const isRTL = document.documentElement.dir === 'rtl';
+        new Splide($el, { 
+            type: 'slides',
+            direction: isRTL ? 'rtl' : 'ltr',
+            rewind: true, 
+            autoplay: true,
+            interval: 4000,
+            arrows: true, 
+            pagination: true,
+            height: '100%',
+            autoHeight: false,
+            breakpoints: {
+                1024: {
+                    height: 'auto',
+                    autoHeight: true 
+                }
+            },
+            classes: {
+                pagination: 'splide__pagination flex items-center gap-2 m-0 p-0 !static !transform-none',
+                page      : 'splide__pagination__page rounded-full bg-[#caced1] hover:opacity-80 transition-opacity focus:outline-none !static !transform-none opacity-100',
             }
-        },
-        classes: {
-            pagination: 'splide__pagination flex items-center gap-2 m-0 p-0 !static !transform-none',
-            page      : 'splide__pagination__page rounded-full bg-[#caced1] hover:opacity-80 transition-opacity focus:outline-none !static !transform-none opacity-100',
-        }
-     }).mount()">
+        }).mount()">
 
     <!-- Slides Track -->
     <div class="splide__track w-full h-auto lg:!h-full">
@@ -99,7 +101,7 @@
     </div>
     
     <!-- Functional Controls connected to Splide -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 lg:bottom-10 lg:right-10 lg:left-auto lg:translate-x-0 flex items-center gap-7 z-10 w-max">
+    <div class="absolute bottom-4 start-1/2 -translate-x-1/2 lg:bottom-5 lg:end-10 lg:start-auto lg:translate-x-0 flex items-center gap-7 z-10 w-max">
         
         <!-- Dots -->
         <ul class="splide__pagination flex items-center gap-2 m-0 p-0 !static !transform-none"></ul>

@@ -24,6 +24,8 @@
 .bg-flash-news { background-image: url('../images/bg-flash-news.svg'); }
 .bg-zellij     { background-image: url('../images/zelij.png'); }
 
+html[dir="rtl"] .bg-flash-news { background-image: url('../images/bg-flash-news-ar.svg'); }
+
 /* =========================================
    TOPBAR STYLES
    ========================================= */
@@ -180,7 +182,7 @@
         background-color: transparent;
         color: var(--color-danger);
     }
-    .bg-flash-news { background-image: none; }
+    .bg-flash-news, html[dir="rtl"] .bg-flash-news{ background-image: none; }
 }
 
 /* The overflow hider */
@@ -228,9 +230,9 @@
     100% { transform: translateX(-100%); } /* Moves exactly its own width */
 }
 
-/* RTL Animation (Moves right) */
+/* RTL Animation (Moves right) — match LTR duration exactly */
 html[dir="rtl"] .ticker-content {
-    animation: ticker-rtl 30s linear infinite;
+    animation: ticker-rtl 120s linear infinite;
 }
 @keyframes ticker-rtl {
     0% { transform: translateX(0); }
@@ -387,7 +389,7 @@ html[dir="rtl"] .ticker-content {
     /* Pinned to top-right of first visible slide */
     .map-tv-splide .map-tv-arrow--up {
         top: -6px;
-        right: 45%;
+        right: 45% !important;
         left: auto;
         bottom: auto;
     }
@@ -396,16 +398,9 @@ html[dir="rtl"] .ticker-content {
     (offset clears the 2-line title area below each thumbnail) */
     .map-tv-splide .map-tv-arrow--down {
         bottom: -10px;
-        right: 45%;
+        right: 45% !important;
         left: auto;
         top: auto;
-    }
-
-    /* RTL: mirror the arrow horizontal position to the start edge */
-    html[dir="rtl"] .map-tv-splide .map-tv-arrow--up,
-    html[dir="rtl"] .map-tv-splide .map-tv-arrow--down {
-        right: auto;
-        left: 8px;
     }
 }
 
@@ -439,4 +434,49 @@ html[dir="rtl"] .ticker-content {
         white-space: nowrap;
         flex-shrink: 0;
     }
+}
+
+/* =========================================
+   RTL OVERRIDES (Arabic mode)
+   Activated when <html dir="rtl"> is set
+   ========================================= */
+
+/* Default Cairo font for Arabic body */
+html[dir="rtl"] body {
+    font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+@media (min-width: 1024px) {
+    /* Hero slider arrow offsets — match xl:-left-16 / xl:-right-16 */
+    .splide-hero .splide__arrow--prev,
+    .splide:not(.map-tv-splide) .splide__arrow--prev { inset-inline-start: -4rem; }
+    .splide-hero .splide__arrow--next,
+    .splide:not(.map-tv-splide) .splide__arrow--next { inset-inline-end: -4rem; }
+}
+
+/* Flip the chevron icons inside Splide arrows in RTL so they point the right way */
+html[dir="rtl"] .splide__arrow i,
+html[dir="rtl"] .splide__arrow svg {
+    transform: scaleX(-1);
+}
+
+/* --- Pagination chevrons (« » ‹ ›) ---
+   These characters render as physical arrows; mirror them in RTL so
+   they visually point in the correct direction relative to flow. */
+html[dir="rtl"] .pagination-chevron {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+/* --- Inline Font Awesome arrows inside text (e.g. "Toutes les actualités →") --- */
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-left {
+    transform: scaleX(-1);
+}
+
+/* --- Re-flip any decorative chevrons that should still point the same physical direction
+   (e.g. accordion open/close indicators are rotational, leave them alone) --- */
+html[dir="rtl"] .fa-chevron-down,
+html[dir="rtl"] .fa-chevron-up {
+    transform: none;
 }

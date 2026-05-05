@@ -12,6 +12,7 @@
             const checkSplide = setInterval(() => {
                 if (window.Splide) {
                     clearInterval(checkSplide);
+                    const isRTL = document.documentElement.dir === 'rtl';
                     new Splide(this.$refs.splide, {
                         type: 'loop',
                         direction: 'ttb',
@@ -31,7 +32,7 @@
                         // Breakpoints for Mobile & Tablet
                         breakpoints: {
                             1024: { // Under 1024px (Tablets & Mobile)
-                                direction: 'ltr',
+                                direction: isRTL ? 'rtl' : 'ltr',
                                 heightRatio: 0,
                                 height: 'auto',
                                 perPage: 2,
@@ -49,9 +50,9 @@
      }">
 
     <!-- Header (matches left-folders / media-carousel style) -->
-    <a href="map-tv.html" class="text-[#191919] hover:text-primary transition-colors font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-1 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110] flex items-center gap-1">
+    <a href="map-tv.html" class="text-[#191919] hover:text-primary transition-colors font-bold text-[22px] font-serif leading-[26px] tracking-normal align-middle ps-1 pb-2 mb-5 lg:mb-3 border-b border-b-[1.6px] border-[#111110] flex items-center gap-1">
         MAP TV
-        <i class="fa-solid fa-chevron-right text-[0.95rem] pt-1"></i>
+        <i class="fa-solid fa-chevron-right text-[0.95rem] pt-1 rtl:pb-1 rtl:pt-0 rtl:rotate-180"></i>
     </a>
 
     <!-- Vertical/Horizontal Splide Carousel -->
@@ -62,12 +63,12 @@
             <button type="button"
                     class="splide__arrow splide__arrow--prev map-tv-arrow map-tv-arrow--up"
                     aria-label="Vidéo précédente">
-                <i class="fa-solid fa-chevron-up -rotate-90 lg:rotate-0 text-[0.85rem]"></i>
+                <i class="fa-solid fa-chevron-up -rotate-90 rtl:rotate-90 lg:rotate-0 text-[0.85rem]"></i>
             </button>
             <button type="button"
                     class="splide__arrow splide__arrow--next map-tv-arrow map-tv-arrow--down"
                     aria-label="Vidéo suivante">
-                <i class="fa-solid fa-chevron-down -rotate-90 lg:rotate-0 text-[0.85rem]"></i>
+                <i class="fa-solid fa-chevron-down -rotate-90 rtl:rotate-90 lg:rotate-0 text-[0.85rem]"></i>
             </button>
         </div>
 
@@ -85,9 +86,9 @@
                                  alt="MAP TV vidéo 1"
                                  class="w-full h-full object-cover">
                             <!-- Play overlay -->
-                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                            <div class="absolute bottom-2 start-2 flex items-center justify-center pointer-events-none">
                                 <div class="w-10 h-10 rounded-full bg-[#0F172A80] backdrop-blur-sm flex items-center justify-center shadow-md">
-                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                    <i class="fa-solid fa-play text-white text-[0.95rem]"></i>
                                 </div>
                             </div>
                         </div>
@@ -107,9 +108,9 @@
                             <img src="https://i.ytimg.com/vi/PmAf-arje5Y/hqdefault.jpg"
                                  alt="MAP TV vidéo 2"
                                  class="w-full h-full object-cover">
-                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                            <div class="absolute bottom-2 start-2 flex items-center justify-center pointer-events-none">
                                 <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
-                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                    <i class="fa-solid fa-play text-white text-[0.95rem]"></i>
                                 </div>
                             </div>
                         </div>
@@ -129,9 +130,9 @@
                             <img src="https://i.ytimg.com/vi/9kpBnjlN_zE/hqdefault.jpg"
                                  alt="MAP TV vidéo 3"
                                  class="w-full h-full object-cover">
-                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                            <div class="absolute bottom-2 start-2 flex items-center justify-center pointer-events-none">
                                 <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
-                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                    <i class="fa-solid fa-play text-white text-[0.95rem]"></i>
                                 </div>
                             </div>
                         </div>
@@ -151,9 +152,9 @@
                             <img src="https://i.ytimg.com/vi/cpgtJeT68vw/hqdefault.jpg"
                                  alt="MAP TV vidéo 4"
                                  class="w-full h-full object-cover">
-                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                            <div class="absolute bottom-2 start-2 flex items-center justify-center pointer-events-none">
                                 <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
-                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                    <i class="fa-solid fa-play text-white text-[0.95rem]"></i>
                                 </div>
                             </div>
                         </div>
@@ -173,9 +174,9 @@
                             <img src="https://i.ytimg.com/vi/9WAJrkgrHGk/hqdefault.jpg"
                                  alt="MAP TV vidéo 5"
                                  class="w-full h-full object-cover">
-                            <div class="absolute bottom-2 left-2 flex items-center justify-center pointer-events-none">
+                            <div class="absolute bottom-2 start-2 flex items-center justify-center pointer-events-none">
                                 <div class="w-10 h-10 rounded-full bg-[#0F172A80] flex items-center justify-center shadow-md">
-                                    <i class="fa-solid fa-play text-white text-[0.95rem] ms-[3px]"></i>
+                                    <i class="fa-solid fa-play text-white text-[0.95rem]"></i>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <script>
+            (function () {
+                if (new URLSearchParams(location.search).get('lang') === 'ar') {
+                    var h = document.documentElement;
+                    h.setAttribute('dir', 'rtl');
+                    h.setAttribute('lang', 'ar');
+                    var s = document.createElement('script');
+                    s.src = 'assets/js/ar-test.js';
+                    document.currentScript.after(s);
+                }
+            }());
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accueil | MAP Express</title>
@@ -19,7 +31,7 @@
         
         <script defer src="assets/js/splide.min.js"></script>
 
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=2">
     </head>
     <body class="bg-white text-gray-800 font-sans antialiased flex flex-col min-h-screen">
 
@@ -57,20 +69,20 @@
         <!-- WP REGION: Main Content -->
         <!-- On mobile: all widgets become flex children via `display: contents` on wrappers,
              ordered by order-[N] classes. On lg+: original layout restored. -->
-        <main class="flex flex-col w-full px-3 sm:px-6 lg:px-0 gap-4 lg:gap-0" id="main-content">
+        <main class="flex flex-col w-full container mx-auto px-3 lg:px-0 gap-4 lg:gap-0" id="main-content">
 
-            <section class="contents lg:block lg:flex-grow lg:w-full lg:container lg:mx-auto lg:px-8 lg:pb-4 lg:pt-0">
+            <section class="contents lg:block lg:flex-grow lg:w-full lg:px-8 lg:pb-4 lg:pt-0">
                 <!-- Injects the 3-column layout structure -->
-                <div data-include="blocks/layouts/home-layout-top.html" class="contents lg:block lg:max-w-7xl lg:mx-auto lg:px-0"></div>
+                <div data-include="blocks/layouts/home-layout-top.html" class="contents lg:block lg:px-0"></div>
 
                 <div data-include="blocks/layouts/home-layout-middle.html" class="contents lg:block lg:mt-8 lg:w-full"></div>
             </section>
 
-            <section class="contents lg:block lg:w-full lg:overflow-hidden">
+            <section class="contents lg:block lg:w-full">
                 <div data-include="blocks/global/media-carousel.html" class="order-[20] lg:order-none"></div>
             </section>
 
-            <section class="contents lg:block lg:flex-grow lg:w-full lg:container lg:mx-auto lg:px-8 lg:pb-4 lg:pt-0">
+            <section class="contents lg:block lg:flex-grow lg:w-full lg:px-8 lg:pb-4 lg:pt-0">
                 <div data-include="blocks/layouts/home-layout-bottom.html" class="contents lg:block lg:mt-8 lg:w-full"></div>
             </section>
 

@@ -2,6 +2,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <script>
+            (function () {
+                if (new URLSearchParams(location.search).get('lang') === 'ar') {
+                    var h = document.documentElement;
+                    h.setAttribute('dir', 'rtl');
+                    h.setAttribute('lang', 'ar');
+                    var s = document.createElement('script');
+                    s.src = 'assets/js/ar-test.js';
+                    document.currentScript.after(s);
+                }
+            }());
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Article Princière Details | Map Express</title>
@@ -20,7 +32,7 @@
 
         <script defer src="assets/js/splide.min.js"></script>
 
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=2">
     </head>
     <body class="bg-white text-gray-800 font-sans antialiased flex flex-col min-h-screen">
         

@@ -29,7 +29,7 @@
     <div class="w-full clearfix text-[#6C6C6C] leading-[1.7] font-sans text-[0.95rem] font-normal">
         
         <!-- THE FLOATING IMAGE -->
-        <div class="float-none md:float-right mb-2 md:ms-5 lg:ms-6 shrink-0 group w-full md:w-auto md:max-w-[50%] lg:max-w-[60%]">
+        <div class="float-none md:float-start mb-2 md:me-5 lg:me-6 shrink-0 group w-full md:w-auto md:max-w-[50%] lg:max-w-[60%]">
             <img src="assets/images/royal_activities/princely-h-1.jpg" alt="SAR le Prince Moulay Rachid préside à Meknès l'ouverture de la 18e édition du Salon International de l'Agriculture au Maroc" class="w-full md:w-auto h-auto max-h-[450px] object-cover">
         </div>
 
@@ -87,7 +87,7 @@
         <!-- Copy Link Button -->
         <button @click="navigator.clipboard.writeText(window.location.href); copied = true; setTimeout(() => copied = false, 2500)" 
                 class="flex items-center gap-2 sm:gap-3 ml-1 group focus:outline-none">
-            <div class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] group-hover:bg-gray-50 group-hover:border-[#116eb7] group-hover:text-[#116eb7] transition-all relative p-2">
+            <div class="w-[28px] h-[28px] rounded-full border border-gray-300 flex items-center justify-center text-[#0b1a30] group-hover:bg-gray-50 group-hover:border-[#116eb7] group-hover:text-[#116eb7] transition-all relative p-2 cursor-pointer">
                 <i class="fa-solid fa-link text-[0.85rem]" x-show="!copied"></i>
                 <i class="fa-solid fa-check text-green-600 text-[0.85rem]" x-show="copied" style="display: none;"></i>
             </div>
